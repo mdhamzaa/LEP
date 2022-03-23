@@ -1,0 +1,576 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgcolor1: #9dc8e4;
+  --highlight: #ffcd24;
+
+  --bgcolor3: white;
+  --dark: #33393d;
+  --textcolor1: white;
+  --textcolor2: black;
+}
+
+body{
+   
+    background-color: #f7f7f7;
+    position: relative;
+    min-height: 100vh; 
+}
+
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  
+  top: 0;
+  left: 0;
+  display: flex;
+  /* align-items: center; */
+  background-color: rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.arrowContainer{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    /* background-color: #9dc8e4; */
+   
+}
+
+.arrowImg{
+   opacity: 0.75;
+   
+   cursor: pointer;
+   width: 40px;
+   height: 40px;
+}
+
+
+
+#leftArrow{
+
+position: absolute;
+left:60px;
+transform: rotateY(180deg);
+}
+
+#rightArrow{
+position: absolute;
+right: 60px;
+
+}
+
+.bgAnimation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:20px;
+  width: 100%;
+  height: 450px;
+  background: url(images/bg0.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#slogan {
+  color: azure;
+  letter-spacing: 4px;
+  word-spacing: 7px;
+  text-transform: capitalize;
+  font-family: fantasy;
+  font-weight: 100;
+  text-shadow: 0 0 10px black;
+  font-size: 5vw;
+  pointer-events: none;
+}
+
+.navmenu {
+    z-index: 5;
+  float: right;
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  z-index: 1000;
+}
+
+.navlinks {
+  text-decoration: none;
+  color: var(--textcolor1);
+  font-family: monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+#brand {
+  text-shadow: 0 0 15px rgb(125, 149, 255);
+  text-decoration: none;
+  position: absolute;
+  left: 150px;
+  color: rgb(0, 0, 0);
+  list-style: none;
+  font-family: "Monoton", cursive;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 3rem;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+#brand:hover{
+    text-shadow: 0 0 25px rgb(39, 39, 39);
+}
+
+.navitem {
+  list-style: none;
+  z-index: 100;
+}
+
+#searchDiv{
+
+position: relative;
+width: 50vw;
+height: 50px;
+border-radius: 10px;
+background-color: white;
+}
+
+.inputs{
+    display: flex;
+    gap: 15px;
+}
+
+#pincode{
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    font-family: monospace;
+}
+
+#search{
+    font-family: monospace;
+    position: absolute;
+    font-size: 1.5rem;
+    top: 0;
+    width: 50vw;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
+    
+}
+
+#searchIcon{
+    position: absolute;
+    top: 10px;
+    left:15px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    color: #33393d;
+    
+}
+
+#hamburger{
+display: none;
+width: 40px;
+height: 30px;
+z-index: 3;
+position: absolute;
+top:30%;
+left: 30px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+transition-property: all;
+transition-duration: 0.5s;
+transition-timing-function: linear;
+}
+
+.bar{
+    display: none;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+.categoriesDiv{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95vw;
+    height: fit-content;
+    
+    padding: 10px;
+}
+
+.allcards{
+    display: grid;
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+
+.card{
+    
+    height: 200px;
+    background-color: rgb(230, 249, 255);
+    margin: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+ .card img{
+     width: 90px;
+     height: 90px;
+ }
+
+.card:hover{
+    width: 270px;
+    height: 210px;
+    margin:5px;
+    box-shadow: -5px 5px 10px rgb(37, 37, 37);
+}
+
+.navlinks:hover{
+    text-decoration: underline;
+}
+
+#categoriesHead{
+    margin:10px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+
+
+#foot{
+   /* position: absolute;
+   bottom: 0px; */
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 30px;
+}
+
+#footBrand{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#footBrand h4{
+    color: aliceblue;
+    font-family: "Monoton", cursive;
+    font-size: 3rem;
+    text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 2rem;
+  font-weight: 100;
+  
+  /* position: absolute; 
+   top:20px;
+   left:30px; */
+}
+
+#footContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap:30px;
+    flex-wrap: wrap;
+    
+}
+
+#trademark{
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#social{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    height: 100%;
+    width: fit-content;
+    position: absolute;
+    right: 70px;
+    align-items: center;
+}
+
+#social h4{
+    color: aliceblue; 
+    font-family: monospace;
+}
+
+#linksContainer{
+     display: flex;
+     flex-direction: row;
+     gap: 15px;
+     
+     
+}
+
+.socialLinks a{
+    color: aliceblue;
+}
+
+.socialLinks img{
+ width: 20px;
+ height: 20px;
+ opacity: 0.6;
+}
+
+.socialLinks img:hover{
+ opacity: 1;
+
+}
+
+.socialLinks img[src]{
+    color: aliceblue;
+    z-index: 10;
+}
+
+#bttContainer{
+    height: 100%;
+    width: fit-content;
+     display: flex;
+     align-items: center;
+     display: flex;
+     gap: 5px;
+}
+
+#up{
+    width: 15px;
+    height: 15px;
+     color: rgb(171, 255, 122);
+}
+
+#backToTop{
+     text-decoration: none;
+     color: rgb(171, 255, 122);
+     font-family: cursive;
+}
+
+#backToTop:hover{
+    text-decoration: underline;
+}
+
+#reviewContainer{
+    z-index:0;
+    position:relative;
+    display: flex;
+    margin: 15px;
+    width: 100%;
+    height: 18rem;
+    gap:0px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.reviewCards{
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    width:320px;
+    height: 15rem;
+    border: 2px solid black;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transform:scale(1) translate(0px,0px) perspective(1000px) rotateY(0deg);
+    border-radius: 10px;
+    background-color: rgba(53, 158, 255, 0.7);
+    transition-property: all;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+
+}
+
+.card-left{
+    transform: scale(0.8) translate(-200px,0px) perspective(1000px) rotateY(25deg);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card-center{
+    transform: scale(1) translate(0px,0px) perspective(1000px) rotateY(0deg);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card-right{
+    transform: scale(0.8) translate(200px,0px) perspective(1000px) rotateY(-25deg);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.aboutHead{
+    pointer-events: none;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    word-spacing:5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 22%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 238, 0);
+    margin-bottom: 10px;
+}
+
+.aboutContent{
+    pointer-events: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    position: absolute;
+    top:25%;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width:768px){
+    #hamburger{
+        display: flex;
+        gap:7px;
+        
+        z-index: 100;
+        
+    }
+    .navlinks.active{
+        color: rgb(255, 72, 0);
+        text-shadow: none;
+    }
+    #hamburger.active {
+       
+        z-index: 1000;
+    }
+    #hamburger.active .bar:nth-child(1){
+        transform: translateY(11px) rotate(45deg);
+       background-color: rgba(255,72,0);
+        z-index: 100;
+    }
+    #hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    #hamburger.active .bar:nth-child(3){
+        transform: translateY(-11px) rotate(-45deg);
+        background-color: rgba(255,72,0);
+        z-index: 100;
+    }
+    .bar{
+        display: block;
+        z-index: 100;
+        
+    }
+    .inputs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #pincode{
+        width: 150px;
+        height: 30px;
+    }
+    #search{
+        font-size: 1rems;
+    }
+    .navmenu{
+        
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: -52vw;
+        background-color: black;
+        height: 100vh;
+        width: 40vw;
+        z-index: 5;
+    }
+    .navmenu.active{
+        left: 0;
+
+    }
+    .navmenu.active:before{
+        content: 'LEP';
+        position: absolute;
+        right:15px;
+        top:15px;
+        letter-spacing: 4px;
+        font-family: "Monoton", cursive;
+        font-size: 2rem;
+
+    }
+    #searchIcon.active{
+        z-index: 0;
+    }
+
+    #reviewContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-left{
+        transform: scale(0.8) translate(0,120px) perspective(1000px) rotateX(-25deg);
+    }
+
+    .card-center{
+        transform: scale(1) translate(0,0) perspective(1000px) rotateY(0deg);
+    }
+
+    .card-right{
+        transform: scale(0.8) translate(0,-120px) perspective(1000px) rotateX(25deg);
+    }
+}
