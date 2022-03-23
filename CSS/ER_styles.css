@@ -3,28 +3,30 @@
     padding: 0;
 }
 :root {
-    --back-colour : #2AABE4;
+    --back-colour : #86acdb;
     --form-colour : white;
     --form-border : 1px solid rgba(255, 255, 255, 0.3);
     --form-shadow : 2px 2px 15px rgba(0, 0, 0, 0.3);
     --form-font : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --f-bottom : 1px solid rgb(12, 12, 12);
+    --high-colour : #ffcd24;
+    --btn-colour : rgb(104, 168, 231);
+    --btn-hower : rgb(45, 45, 247);
 }
-
 body{
+    /* background: linear-gradient(#3c3ab5,#0a096e); */
     background: var(--back-colour);
     background-size: 150%;
     background-position: -400px 0px;
 }
 div.main{
-    width: 50%;
+    width: 40%;
     margin: 100px auto 10px auto;
 }
 h2{
     text-align: center;
     padding: 40px;
     font-family: sans-serif;
-   
 }
 div.register{
     background-color: var(--form-colour);
@@ -37,15 +39,9 @@ div.register{
 form#register{
     margin: 40px;
 }
-
 label{
     font-family: var(--form-font);
     font-size: 18px;
-    margin-top: 50px;
-}
-
-input {
-    margin-bottom: 30px;
 }
 .esignup{
     display: flex;
@@ -73,7 +69,36 @@ p{
     display: hidden;
 }
 
-.btn {
+#img{
+    position: absolute;
+    max-width: 4%;
+    max-height: 4%;
+    cursor: pointer;
+    top: 205%;
+    right: 34%;
+}
+
+#submit{
+    text-align: center;
+    width: 100px;
+    padding: 4px;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background : var(--btn-colour);
+    color: var(--form-colour);
+    border-radius: 2px;
+    cursor: pointer;
+}
+#submit:hover{
+    background: var(--btn-hower);
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+} 
+#submit:active{
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+/* .btn {
     background: rgb(39, 158, 238);
   
     border-radius: 28px;
@@ -86,5 +111,6 @@ p{
   }
   
   .btn:hover {
-    background: #6d62ff;
-  }
+    background: #FFCD24;
+} */
+  
