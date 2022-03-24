@@ -9,19 +9,28 @@ const path = require('path');
 
 app = express();
 
+
+
+
+
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-    
+// all get requests
+
+
 
 app.get('/',(req, res) => {
-   
+    res.sendFile(path.join(__dirname,'views', 'index.html'));
 })
 app.get('/login',(req, res) => {
     res.sendFile(path.join(__dirname,'views', 'login.html'));
+})
+app.get('/login/forget-password',(req, res) => {
+    res.sendFile(path.join(__dirname,'views', 'forgetpassword.html'));
 })
 app.get('/registration-choice',(req, res) => {
     res.sendFile(path.join(__dirname,'views', 'RegisterChoice.html'));
@@ -40,15 +49,13 @@ app.get('/employee-registration',(req, res)=>{
 
 
 
+//all post requests
+
 
 app.post('/',(req, res) => {
 
-    
+    //send to the search page
 })
-app.post('/registration-choice',(req, res) => {
-
-   })
-
 
 app.post('/employee-registration',(req, res)=>{
     console.log(req.body);
@@ -61,13 +68,19 @@ app.post('/employer-registration',(req, res)=>{
     res.redirect('/login');  
 })
 
+app.post('login',(req, res)=>{
 
-// app.use('/',(req, res)=>{
-//     res.status(404).send("<h1>page doesn't find</h1>");
-// })
+    res.redirect('/login');
+})
+
+app.use('/',(req, res)=>{
+    res.status(404).send("<h1>page doesn't find</h1>");
+})
 
 
 app.listen(3000,()=>{
 
-    console.log("Server is started");
+    console.log("Server is started at post 3000");
+
+    
 })

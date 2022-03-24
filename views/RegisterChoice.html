@@ -5,15 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/CSS/styles.css" />
+    <link rel="stylesheet" href="/CSS/navbar.css" type="text/css" />
     <title>LEP</title>
   </head>
 
   <body>
-    <div class="header">
-      <a href="" class="head">Home</a>
-      <a href="" class="head">Login/SignUp</a>
-      <a href="" class="head">Contact Us</a>
-    </div>
+    <nav id="navbar">
+      <span id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </span>
+      <li id="brand">
+        <a href="/" style="color: rgb(255, 218, 10); text-decoration: none"
+          >LEP</a
+        >
+      </li>
+      <ul class="navmenu" id="navmenu">
+        <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
+        <li class="navitem">
+          <a href="/content-us" class="navlinks disappear">Contact Us</a>
+        </li>
+        <li class="navitem">
+          <a href="/registration-choice" class="navlinks">Sign Up/Log In</a>
+        </li>
+      </ul>
+    </nav>
+
     <div class="container">
       <div class="container1">
         <img src="/Images/undraw_hire_re_gn5j.svg" />
