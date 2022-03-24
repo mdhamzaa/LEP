@@ -1,0 +1,113 @@
+<!-- Group No.- 8 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <a href="https://icons8.com/icon/OyMwehLZzI2s/search"></a>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+    </style>
+
+
+</head>
+
+<body>
+    <div class="bgAnimation" id="imgChange">
+        <h1 id="slogan">Opportunities Made Real</h1>
+        <div class="arrowContainer">
+        <span id="leftBgChange"><img  class="arrowImg" id="leftArrow" src="images/arrow.svg" alt=""></span>
+        <span id="rightBgChange"><img  class="arrowImg" id="rightArrow" src="images/arrow.svg" alt=""></span>
+    </div>
+
+        <div class="inputs">
+            <input type="text" name="" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}" maxlength="6">
+            <div id="searchDiv"><img id="searchIcon" src="images/search-svgrepo-com.svg" /><input type="text" name=""
+                    id="search" placeholder="Search for services..."></input></div>
+        </div>
+    </div>
+
+    <nav id="navbar">
+        <span id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </span>
+        <li id="brand"><a href="#" style="color:black;text-decoration: none;">
+           LEP
+        </a></li>
+        <ul class="navmenu" id="navmenu">
+
+            <li class="navitem"><a href="#" class="navlinks disappear">Home</a></li>
+            <li class="navitem"><a href="#" class="navlinks disappear">Contact Us</a></li>
+            <li class="navitem"><a href="#" class="navlinks">Sign Up/Log In</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="categoriesDiv">
+        <h1 id="categoriesHead" class="headings">Categories</h1>
+        <div class="allcards">
+            <span class="card" id="barber">
+                <img src="images/barber.svg" alt="Loading..">
+                <h3 class="innerHead">Barber</h3>
+            </span>
+            <span class="card"><img src="images/carpenter.svg" alt="Loading..">
+                <h3 class="innerHead">Carpenter</h3>
+            </span>
+            <span class="card"><img src="images/plumber.svg" alt="Loading..">
+                <h3 class="innerHead">Plumber</h3>
+            </span>
+            <span class="card"><img src="images/painter.svg" alt="Loading..">
+                <h3 class="innerHead">Painter</h3>
+            </span>
+            <span class="card"><img src="images/painter.svg" alt="Loading..">
+                <h3 class="innerHead">Painter</h3>
+            </span>
+            <span class="card"><img src="images/painter.svg" alt="Loading..">
+                <h3 class="innerHead">Painter</h3>
+            </span>
+
+        </div>
+    </div>
+
+    
+    <div id="reviewContainer">
+        <div class="reviewCards card-left" id="card1"><div class="aboutHead">About</div><div class="aboutContent">This is about</div></div>
+        <div class="reviewCards card-center" id="card2"><div class="aboutHead">Our Mission</div><div class="aboutContent">This is mission</div></div>
+        <div class="reviewCards card-right" id="card3"><div class="aboutHead">More</div><div class="aboutContent"></div></div>
+    </div>
+       
+    <footer id="foot">
+        <div id="footContainer">
+            <span id="footBrand">
+                <h4>LEP</h4>
+                <span id="trademark"> &#169; Local Employment Portal</span>
+            </span>
+            <span id="bttContainer"><a id="backToTop" href="#imgChange">Back to Top</a><img id="up" src="images/up.png"
+                    alt="" srcset=""></span>
+            <span id="social">
+                <h4>Social Links</h4>
+                <div id="linksContainer">
+                    <a href="#" class="socialLinks"><img src="images/youtube.svg" alt="" srcset=""></a>
+                    <a href="#" class="socialLinks"><img src="images/twitter.svg" alt="" srcset=""></a>
+                    <a href="#" class="socialLinks"><img src="images/facebook.svg" alt="" srcset=""></a>
+                </div>
+            </span>
+        </div>
+    </footer>
+
+
+    <script src="home.js"></script>
+
+</body>
+
+</html>
