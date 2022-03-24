@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employer registration form</title> 
+    <link rel="stylesheet" href="/CSS/ER_styles.css" type="text/css" >
+</head>
+<body>
+    <div class="main">
+        <div class="register">
+            <h2>Employer Registration</h2><hr>
+            
+            <form id="register" method="post">
+                <label for="uname" class="Lclass">Username</label>
+                <input type="text" name="username" id="uname" placeholder="Enter your username" required="required" class="esignup">
+                
+                <label for="level" class="Lclass">Level</label>
+                <input type="text" name="level" id="level" value="Customer">
+                
+                <label for="email" class="Lclass">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required="required" class="esignup">
+                
+                <label for="fname" class="Lclass">Firstname</label>
+                <input type="text" name="fname" id="fname" placeholder="Enter your firstname" required="required" class="esignup">
+                
+                <label for="lname" class="Lclass">Lastname</label>
+                <input type="text" name="lname" id="lname" placeholder="Enter your lastname" required="required" class="esignup">
+                
+                <label class="Lclass">Gender</label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="Gender" id="male">
+                &nbsp;
+                <span id="male">Male</span>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="Gender" id="female">
+                &nbsp;
+                <span id="female">Female</span>
+                
+                <label for="birthday" class="Lclass">Date of birth </label>
+                <input type="date" id="birthday" name="birthday" required="required">
+                
+                <label for="address" class="Lclass">Address</label>
+                <input type="text" name="address" id="address" placeholder="Enter your Address" required="required" class="esignup">
+                
+                <label for="pcode" class="Lclass">Pincode</label>
+                <input type="text" name="Pincode" id="pcode" placeholder="Enter your Pincode" required="required" class="esignup">
+                
+                <label for="pnum" class="Lclass">Mobile number</label>
+                <input type="text" name="pnum" id="pnum" placeholder="Enter your Mobile number" maxlength="10" class="esignup">
+                
+                <label for="password" class="Lclass">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter Password" class="esignup">
+                
+                <label for="cpassword" class="Lclass">Confirm password</label>
+                <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password" class="esignup">
+                
+                <label for="myFile" class="Lclass">Upload Aadhar photo :</label>
+                <input type="file" id="myFile" name="filename">
+                
+                <input type="submit" value="Submit" name="submit" id="submit" class="btn">
+                
+                <p id="AHA" class="esignup">Already have an account? <a href="/login"><b>login</a></p>
+            </form>            
+        </div>
+    </div>
+</body>
+</html>

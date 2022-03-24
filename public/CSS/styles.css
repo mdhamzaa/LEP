@@ -5,6 +5,10 @@
 body {
   background-color: white;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 .container {
   display: flex;
   gap: 22rem;
