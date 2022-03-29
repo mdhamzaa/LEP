@@ -4,14 +4,19 @@
   box-sizing: border-box;
 }
 
- /* ::-webkit-scrollbar{
-  width : 2rem;
+ ::-webkit-scrollbar{
+ width: 10px;
 }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(to top,#008aff,#00ffe7);
+  border-radius: 100vw;
+  margin-block: 10px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
 ::-webkit-scrollbar-track{
-  margin: 5px 0px;
-  border-radius: 100vh;
-  background-color: whitesmoke;
-} */
+  background-color: #000000;
+}
 
 :root {
   --bgcolor1: #9dc8e4;
