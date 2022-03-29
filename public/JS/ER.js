@@ -32,3 +32,18 @@ function strength(){
         document.getElementById("pass_result").innerHTML="Strong";
         document.getElementById("green").style.backgroundColor="green";}
 }
+
+function vali_pass(){
+    const pass = document.getElementById('password').value;
+    const cpass = document.getElementById('cpassword').value;
+    // const pin1 = document.getElementById('pcode1').value;
+    // const pin2 = document.getElementById('pcode2').value;
+    // const pin3 = document.getElementById('pcode3').value;
+    if (pass == cpass) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Not matching';
+  }
+}
