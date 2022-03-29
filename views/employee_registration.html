@@ -28,7 +28,7 @@
         <div class="register">
             <h2>Employee Registration</h2><hr>
             <br>
-            <form id="register" method="post">
+            <form id="register" method="post" action="/employee-registration">
                 <label for="uname">Username</label>
                 <input type="text" name="username" id="uname" placeholder="Enter your username" required="required" class="esignup">
                 <br><br>
@@ -65,11 +65,12 @@
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pcode2">Pincode 2</label>
-                <input type="number" name="Pincode2" id="pcode2" placeholder="Enter your Pincode 2" required="required" class="esignup" maxlength = "6"
+                <input type="number" name="Pincode1" id="pcode2" placeholder="Enter your Pincode 2" required="required" class="esignup" maxlength = "6"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
+                <br><br>
                 <label for="pcode3">Pincode 3</label>
-                <input type="number" name="Pincode3" id="pcode3" placeholder="Enter your Pincode 3" required="required" class="esignup" maxlength = "6"
+                <input type="number" name="Pincode1" id="pcode3" placeholder="Enter your Pincode 3" required="required" class="esignup" maxlength = "6"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pnum">Mobile number</label>
@@ -94,9 +95,9 @@
                 <label for="cpassword">Confirm password</label>
                 <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password" class="esignup">
                 <br><br>
-                <input type="submit" value="Submit" name="submit" id="submit" class="btn">
+                 <button type="submit" class="btn"  name="submit" id="submit">Submit</button>
                 <br>
-                <p id="AHA" class="esignup">Already have an account? <a href="./login"><b>login</a></p>
+                <p id="AHA" class="esignup">Already have an account? <a href="/login"><b>login</a></p>
             </form>         
         </div>
     </div>
