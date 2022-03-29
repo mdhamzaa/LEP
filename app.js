@@ -18,7 +18,7 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 // const RegiterER =  Register.RegiterER;
 //Third-pary modules
 const express = require('express');
-const bodyParser = require('body-parser');
+
 
 
 
@@ -87,8 +87,9 @@ app.get('/employee-registration', (req, res) => {
 })
 
 app.get('/dashboard', isAuth, (req, res) => {
-    console.log(req.session.userp);
-    res.render('UserProfile');
+
+    res.render('UserProfile', req.session.userp);
+
 })
 
 
@@ -219,7 +220,7 @@ app.post('/login', async (req, res) => {
             if (employee.password === thisPassword) {
                 req.session.userp = employee;
                 req.session.isAuth = true;
-                return res.status(201).redirect('/');
+                return res.status(201).redirect('/dashboard');
 
 
             } else {
@@ -265,6 +266,7 @@ app.post('/login', async (req, res) => {
 
 app.post("/logout", (req, res) => {
     req.session.destroy();
+    res.redirect('/');
 })
 
 
