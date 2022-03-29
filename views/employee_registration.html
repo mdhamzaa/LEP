@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/CSS/ER_styles.css" type="text/css" >
     <link rel="stylesheet" href="/CSS/navbar.css" type="text/css">
     <script src="/JS/ER.js"></script>
+    <script src="https://kit.fontawesome.com/0029b00133.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav id="navbar">
@@ -27,7 +28,7 @@
         <div class="register">
             <h2>Employee Registration</h2><hr>
             <br>
-            <form id="register" method="post" action="/employee-registration">
+            <form id="register" method="post">
                 <label for="uname">Username</label>
                 <input type="text" name="username" id="uname" placeholder="Enter your username" required="required" class="esignup">
                 <br><br>
@@ -60,13 +61,16 @@
                 <input type="text" name="address" id="address" placeholder="Enter your Address" required="required" class="esignup">
                 <br><br>
                 <label for="pcode1">Pincode 1</label>
-                <input type="text" name="Pincode1" id="pcode1" placeholder="Enter your Pincode 1" required="required" class="esignup">
+                <input type="number" name="Pincode1" id="pcode1" placeholder="Enter your Pincode 1" required="required" class="esignup" maxlength = "6"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pcode2">Pincode 2</label>
-                <input type="text" name="Pincode2" id="pcode2" placeholder="Enter your Pincode 2" required="required" class="esignup">
+                <input type="number" name="Pincode2" id="pcode2" placeholder="Enter your Pincode 2" required="required" class="esignup" maxlength = "6"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pcode3">Pincode 3</label>
-                <input type="text" name="Pincode3" id="pcode3" placeholder="Enter your Pincode 3" required="required" class="esignup">
+                <input type="number" name="Pincode3" id="pcode3" placeholder="Enter your Pincode 3" required="required" class="esignup" maxlength = "6"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pnum">Mobile number</label>
                 <input type="text" name="pnum" id="pnum" placeholder="Enter your Mobile number" maxlength="10" class="esignup">
@@ -77,17 +81,23 @@
                 <label for="exp">Experience</label>
                 <input type="text" name="Experience" id="exp" placeholder="Enter your Experience" class="esignup">
                 <br><br>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password" class="esignup">
-                <img src="/Images/eyeopen.jfif" alt="" id="img" onclick="toggle()">
+                <label for="password">Password</label><i id= "eye" class="fa-solid fa-eye-slash" onclick="toggle()" ></i>
+                <input type="password" name="password" id="password" placeholder="Enter Password" class="esignup" onkeyup="strength()">
+                <div id="pass_strength">
+                    <span id="red">&nbsp;&nbsp;</span>
+                    <span id="yellow">&nbsp;&nbsp;</span>
+                    <span id="green">&nbsp;&nbsp;</span>
+                </div>
+                <label for=""id="pass_result"></label>
+                <!-- <img src="./eyeopen.jfif" alt="" id="img" onclick="toggle()"> -->
                 <br><br>
                 <label for="cpassword">Confirm password</label>
                 <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password" class="esignup">
                 <br><br>
                 <input type="submit" value="Submit" name="submit" id="submit" class="btn">
                 <br>
-                <p id="AHA" class="esignup">Already have an account? <a href="/login"><b>login</a></p>
-            </form>            
+                <p id="AHA" class="esignup">Already have an account? <a href="./login"><b>login</a></p>
+            </form>         
         </div>
     </div>
 </body>
