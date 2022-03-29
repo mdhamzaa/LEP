@@ -3,54 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/login.css">
-    <link rel="stylesheet" href="/CSS/navbar.css" type="text/css">
-    <script src="JS/app.js"></script>
-        <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+    <script src="https://kit.fontawesome.com/5aa3c80a23.js" crossorigin="anonymous"></script>
+        <title>LEP-login</title>
 </head>
 <body>
-    <nav id="navbar">
-        <span id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </span>
-        <li id="brand"><a href="/" style="color:rgb(255, 218, 10);text-decoration: none;">LEP</a></li>
-        <ul class="navmenu" id="navmenu">
-
-            <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
-            <li class="navitem"><a href="/content-us" class="navlinks disappear">Contact Us</a></li>
-            <li class="navitem"><a href="/registration-choice" class="navlinks">Sign Up/Log In</a></li>
-
-        </ul>
-    </nav>
-
-   
+   <script src="./login.js"></script>
 <!-- <div class="wave">
         <img src="./up1-cropped.svg" alt="">
     </div> -->
 <div class="loginsgv">
-    <img id="logipic"src="/Images/Mobile login-amico.svg" alt="">
+    <img id="logipic"src="./Mobile login-amico.svg" alt="">
 </div>
 <div class="loginbox">
 <div class="container">
-    <h1>Login Porta<span id="l">l</span>
+    <form action="">
+    <h1>Login Portal
     </h1>
      <div class="gif">
-        <!-- <img id="ham" src="./hammer.gif" alt=""> -->
      </div>
      <br>
+    
     <input type="text" id="one"required="required" >
     <label for="" id="lab1">Username</label>
-
     <input type="password"  id="two" required="required">
-    <label for="" id="lab2">Password</label><br>
-
-     <button  id="login-button">Login</button>
-     <a href="/login/forget-password" id="forget-password">Forget password?</a>
-     <p id="DHA">Don't have an account?<a href="/registration-choice"><b>Sign up</a></p>
-        <img src="/Images/eyeopen.png" alt="" id="eye" onclick="toggle()">
-
+    <label for="" id="lab2">Password</label> &nbsp;<i id='eye'onClick="toggle()"class="fa-solid fa-eye-slash"></i><br>
+     <button  id="login-button" onClick="login_checker()">Login</button>
+     <a href="./forgetpassword.html" id="forget-password">Forget password?</a>
+     <p id="DHA">Don't have an account?<a href="./employee_registration.html"><b>Sign up</a></p></form>
 </body>
 </html>
