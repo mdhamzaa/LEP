@@ -10,28 +10,51 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="/CSS/home.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <a href="https://icons8.com/icon/OyMwehLZzI2s/search"></a>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Satisfy&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
     </style>
-   
+
 
 </head>
 
 <body>
+    <div id="loader">
+        <div id="ring">
+
+            <span class="blurEffect" style="--i:1"></span>
+            <span class="blurEffect" style="--i:2"></span>
+            <span class="blurEffect" style="--i:3"></span>
+
+        </div>
+        <ul id="loadList">
+            <li class="dots" style="--i:0"></li>
+            <li class="dots" style="--i:1"></li>
+            <li class="dots" style="--i:2"></li>
+            <li class="dots" style="--i:3"></li>
+            <li class="dots" style="--i:4"></li>
+        </ul>
+    </div>
     <div class="bgAnimation" id="imgChange">
         <h1 id="slogan">Opportunities Made Real</h1>
         <div class="arrowContainer">
-        <span id="leftBgChange"><img  class="arrowImg" id="leftArrow" src="images/arrow.svg" alt=""></span>
-        <span id="rightBgChange"><img  class="arrowImg" id="rightArrow" src="images/arrow.svg" alt=""></span>
-    </div>
+            <span id="leftBgChange"><img class="arrowImg" id="leftArrow" src="/Images/arrow.svg" alt=""></span>
+            <span id="rightBgChange"><img class="arrowImg" id="rightArrow" src="/Images/arrow.svg" alt=""></span>
+        </div>
 
         <div class="inputs">
             <input type="text" name="" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}" maxlength="6">
-            <div id="searchDiv"><img id="searchIcon" src="images/search-svgrepo-com.svg" /><input type="text" name=""
+            <div id="searchDiv"><img id="searchIcon" src="/Images/search-svgrepo-com.svg" /><input type="text" name=""
                     id="search" placeholder="Search for services..."></input></div>
         </div>
     </div>
@@ -42,14 +65,15 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </span>
-        <li id="brand"><a href="#" style="color:black;text-decoration: none;">
-           LEP
-        </a></li>
+        <li id="brand"><a href="#" style="color:whitesmoke;text-decoration: none;">
+                LEP
+            </a></li>
         <ul class="navmenu" id="navmenu">
 
-            <li class="navitem"><a href="#top" class="navlinks disappear">Home</a></li>
-            <li class="navitem"><a href="/content-us" class="navlinks disappear">Contact Us</a></li>
-            <li class="navitem"><a href="/registration-choice" class="navlinks">Sign Up/Log In</a></li>
+            <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
+            <li class="navitem"><a href="/contact-us" class="navlinks disappear">Contact Us</a></li>
+            <li class="navitem"><a href="/login" class="navlinks">Sign Up/Log In</a></li>
+            <li class="navitem"><form action="/logout" method="post">><a href="/logout" class="navlinks">Log Out</a></form</li>
 
         </ul>
     </nav>
@@ -58,35 +82,255 @@
         <h1 id="categoriesHead" class="headings">Categories</h1>
         <div class="allcards">
             <span class="card" id="barber">
-                <img src="images/barber.svg" alt="Loading..">
+                <img src="/Images/barber.svg" alt="Loading..">
                 <h3 class="innerHead">Barber</h3>
             </span>
-            <span class="card"><img src="images/carpenter.svg" alt="Loading..">
+            <span class="card"><img src="/Images/carpenter.svg" alt="Loading..">
                 <h3 class="innerHead">Carpenter</h3>
             </span>
-            <span class="card"><img src="images/plumber.svg" alt="Loading..">
+            <span class="card"><img src="/Images/plumber.svg" alt="Loading..">
                 <h3 class="innerHead">Plumber</h3>
             </span>
-            <span class="card"><img src="images/painter.svg" alt="Loading..">
+            <span class="card"><img src="/Images/painter.svg" alt="Loading..">
                 <h3 class="innerHead">Painter</h3>
             </span>
-            <span class="card"><img src="images/painter.svg" alt="Loading..">
-                <h3 class="innerHead">Painter</h3>
+            <span class="card"><img src="/Images/mechanic.svg" alt="Loading..">
+                <h3 class="innerHead">Mechanic</h3>
             </span>
-            <span class="card"><img src="images/painter.svg" alt="Loading..">
-                <h3 class="innerHead">Painter</h3>
+            <span class="card"><img src="/Images/electrician.svg" alt="Loading..">
+                <h3 class="innerHead">Electrician</h3>
             </span>
 
         </div>
     </div>
 
-    
-    <div id="reviewContainer">
-        <div class="reviewCards card-left" id="card1"><div class="aboutHead">About</div><div class="aboutContent">This is about</div></div>
-        <div class="reviewCards card-center" id="card2"><div class="aboutHead">Our Mission</div><div class="aboutContent">This is mission</div></div>
-        <div class="reviewCards card-right" id="card3"><div class="aboutHead">More</div><div class="aboutContent"></div></div>
+    <div id="joinDiv">
+        <div id="join">
+            <h1 id="joinHead">Join Our Community</h1>
+            <div id="options">
+                <div id="work" class="optionCard" data-aos="fade-right" data-aos-offset="6" data-aos-duration="800"><img
+                        id="workImg" class="optionImg" src="/Images/work.jpg">
+                    <h3 class="optionHead">I Want To Work</h3><button class="optionBtn">Work</button>
+                </div>
+                <div id="hire" class="optionCard" data-aos="fade-left" data-aos-offset="6" data-aos-duration="800"><img
+                        id="hireImg" class="optionImg" src="/Images/hire.jpg">
+                    <h3 class="optionHead">I Want To Hire</h3><button class="optionBtn">Hire</button>
+                </div>
+            </div>
+        </div>
     </div>
-       
+
+    <div id="topContent" data-aos-offset="10" data-aos-duration="800" data-aos="fade-right">
+        <h1 id="topHead">Top Workers of the Week</h1>
+        <div id="topContainer">
+
+            <div class="topCards card-left" id="card1">
+                <div class="topHead">#Rank 2</div>
+                <div class="topContent"><img class="topImg" src="/Images/rank2.jpg" alt="">
+                    <div class="rankName">Mahila</div>
+                    <div class="rankProfession">Painter</div>
+                    <div class="rankRating"><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i></div>
+                </div>
+            </div>
+            <div class="topCards card-center" id="card2">
+                <div class="topHead">#Rank 1</div>
+                <div class="topContent"><img class="topImg" src="/Images/rank1.jpg" alt="">
+                    <div class="rankName">Jeremy Renner</div>
+                    <div class="rankProfession">Carpenter</div>
+                    <div class="rankRating"><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i></div>
+                </div>
+            </div>
+            <div class="topCards card-right" id="card3">
+                <div class="topHead">#Rank 3</div>
+                <div class="topContent"><img class="topImg" src="/Images/rank3.jpg" alt="">
+                    <div class="rankName">Purush</div>
+                    <div class="rankProfession">Delivery Boy</div>
+                    <div class="rankRating"><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="reviewContainer">
+        <h1 id="reviewHead">Reviews</h1>
+        <div id="reviewCards">
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r1.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Vaibhav Singh</div>
+                    <div class="profession">Employer</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r2.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Peter Lynch</div>
+                    <div class="profession">Employer</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r3.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Jyoti Mehta</div>
+                    <div class="profession">Employer</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r4.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Neeraj Sharma</div>
+                    <div class="profession">Carpenter</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r5.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Tom Holland</div>
+                    <div class="profession">Barber</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r6.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">William Johnson</div>
+                    <div class="profession">Worker</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r7.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Karan Singh</div>
+                    <div class="profession">Mechanic</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+
+                </div>
+            </div>
+            <div class="reviewcard">
+                <div class="reviewImgCon">
+                    <img src="/Images/r8.jpg" alt="" class="reviewImg">
+                </div>
+                <div class="name-profession">
+                    <div class="name">Sanjeev Kumar</div>
+                    <div class="profession">Delivery Boy</div>
+                </div>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="reviewContent">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate soluta nemo quam fugit deserunt
+                    corporis repudiandae, animi aut. Tempore sapiente fugiat veniam provident aliquid! Reiciendis
+                    corrupti maiores iure tenetur alias illum fugiat dolor ex molestias provident modi accusamus
+                    voluptatibus, magnam possimus, laudantium nostrum amet libero in excepturi facere sit architecto
+                    mollitia. Quidem laudantium at nihil et odio quisquam, ipsam recusandae magni fugit quam! Doloremque
+                    rem delectus neque, quo quam et repudiandae sit beatae assumenda a deleniti. Repellat eligendi et
+                    molestias provident magni adipisci ipsa eius quia labore quae at pariatur suscipit earum debitis
+                    libero, amet, rem dolores ullam quo perspiciatis.
+                </div>
+            </div>
+        </div>
+        <span class="slideBtn" id="slideBtn1"></span>
+        <span class="slideBtn" id="slideBtn2"></span>
+    </div>
+
     <footer id="foot">
         <div id="footContainer">
             <span id="footBrand">
@@ -98,9 +342,9 @@
             <span id="social">
                 <h4>Social Links</h4>
                 <div id="linksContainer">
-                    <a href="#" class="socialLinks"><img src="images/youtube.svg" alt="" srcset=""></a>
-                    <a href="#" class="socialLinks"><img src="images/twitter.svg" alt="" srcset=""></a>
-                    <a href="#" class="socialLinks"><img src="images/facebook.svg" alt="" srcset=""></a>
+                    <a href="#" class="socialLinks"><img src="/Images/youtube.svg" alt="" srcset=""></a>
+                    <a href="#" class="socialLinks"><img src="/Images/twitter.svg" alt="" srcset=""></a>
+                    <a href="#" class="socialLinks"><img src="/Images/facebook.svg" alt="" srcset=""></a>
                 </div>
             </span>
         </div>
@@ -108,6 +352,11 @@
 
 
     <script src="/JS/home.js"></script>
+    <script src="https://kit.fontawesome.com/64721a12ed.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 
