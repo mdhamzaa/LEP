@@ -69,8 +69,9 @@ p{
     display: hidden;
 }
 
-#img{
-    position: absolute;
+#eye{
+    /* position: absolute; */
+    margin-left: 400px;
     max-width: 4%;
     max-height: 4%;
     cursor: pointer;
@@ -113,4 +114,20 @@ p{
   .btn:hover {
     background: #FFCD24;
 } */
-  
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+#pass_strength{
+    display: flex;
+}
+
+#red,#yellow,#green,#pass_result{
+    width: 5vw;
+    height: 4vh;
+    border-radius: 10px;
+    margin: 5px;
+    margin-bottom: 0%;
+}
