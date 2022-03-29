@@ -74,16 +74,17 @@
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="pnum">Mobile number</label>
-                <input type="text" name="pnum" id="pnum" placeholder="Enter your Mobile number" maxlength="10" class="esignup">
+                <input type="number" name="pnum" id="pnum" placeholder="Enter your Mobile number" maxlength="10" class="esignup" maxlength="10"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 <br><br>
                 <label for="skills">Skills</label>
-                <input type="text" name="Skills" id="skills" placeholder="Enter your Skills" class="esignup">
+                <input type="text" name="Skills" id="skills" placeholder="Enter your Skills" class="esignup" required="required">
                 <br><br>
                 <label for="exp">Experience</label>
-                <input type="text" name="Experience" id="exp" placeholder="Enter your Experience" class="esignup">
+                <input type="text" name="Experience" id="exp" placeholder="Enter your Experience" class="esignup" required="required">
                 <br><br>
                 <label for="password">Password</label><i id= "eye" class="fa-solid fa-eye-slash" onclick="toggle()" ></i>
-                <input type="password" name="password" id="password" placeholder="Enter Password" class="esignup" onkeyup="strength()">
+                <input type="password" name="password" id="password" placeholder="Enter Password" class="esignup" onkeyup="strength()" required="required">
                 <div id="pass_strength">
                     <span id="red">&nbsp;&nbsp;</span>
                     <span id="yellow">&nbsp;&nbsp;</span>
@@ -93,9 +94,10 @@
                 <!-- <img src="./eyeopen.jfif" alt="" id="img" onclick="toggle()"> -->
                 <br><br>
                 <label for="cpassword">Confirm password</label>
-                <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password" class="esignup">
-                <br><br>
-                 <button type="submit" class="btn"  name="submit" id="submit">Submit</button>
+    <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password" class="esignup" required="required" onkeyup="vali_pass()">
+                <br>
+                <h3 id="message"></h3>
+                <input type="submit" value="Submit" name="submit" id="submit" class="btn">
                 <br>
                 <p id="AHA" class="esignup">Already have an account? <a href="/login"><b>login</a></p>
             </form>         
