@@ -69,15 +69,6 @@ button:active{
   color: #cdc8d4;
 }
 
-/* .gif {
-  top: auto;
-  right: auto;
-  position: fixed;
-  left: 74vw;
-  bottom: 65vh;
-  z-index: 2;
-} */
-
 #lab2 {
   position: absolute;
   top: 221%;
@@ -161,14 +152,10 @@ input:valid + #lab2 {
 .container h1 {
   margin-left: 14%;
 }
-/* #l{
-  display: none;
-} */
-#eye {
-  position: absolute;
-  width: 2vw;
-  height: 4vh;
-  top: 28vh;
-  left: 26vw;
+ #eye {
   cursor: pointer;
+} 
+form{
+ height: 100%;
+ width: 100%;   
 }
