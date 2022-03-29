@@ -2,11 +2,15 @@
 // core Modules
 const path = require('path');
 
-
 const database = require('./database.js');
 const Employee = require(__dirname + '/public/models/employee.js');
 const Employer = require(__dirname + '/public/models/employer.js');
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 // const Register = require('./register.js');
+
+
+
 
 // const {RegiterE, RegisterER} = require(__dirname + '/register.js');
 
@@ -18,10 +22,25 @@ const bodyParser = require('body-parser');
 
 
 
+
+
 const app = express();
 app.set("view engine", "ejs");
 
+const store = new MongoDBStore({
+    uri: 'mongodb://localhost:27017/lep',
+    collection: "Sessions",
+});
 
+
+app.use(
+    session({
+        secret: "this is top secret",
+        resave: false,
+        saveUninitialized: false,
+        store: store,
+    })
+);
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -31,7 +50,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 // all get requests
 
+
+const isAuth = (req, res, next) => {
+    if (req.session.isAuth) {
+        next();
+    } else {
+        res.redirect("/login");
+    }
+};
+
+
 app.get('/', (req, res) => {
+
+    // req.session.isAuth = true;
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 })
 app.get('/login', (req, res) => {
@@ -55,6 +86,10 @@ app.get('/employee-registration', (req, res) => {
 
 })
 
+app.get('/dashboard', isAuth, (req, res) => {
+    console.log(req.session.userp);
+    res.render('UserProfile');
+})
 
 
 //all post requests
@@ -172,37 +207,81 @@ app.post('/login', async (req, res) => {
     try {
         const thisUsername = req.body.username;
         const thisPassword = req.body.password;
-        const user = await Employee.findOne({ username: thisUsername });
+        const employer = await Employer.findOne({ username: thisUsername });
+        const employee = await Employee.findOne({ username: thisUsername });
 
-        if (user == null) {
-            res.render('login', { data: "Invalid username or user is not regiterd yet" });
+        // console.log(employee);
+        // console.log(employer);
+        if (employee == null && employer == null) {
+            return res.render('login', { data: "User is not regiterd yet" });
         }
-        else if (user.password === thisPassword) {
+        if (employee != null) {
+            if (employee.password === thisPassword) {
+                req.session.userp = employee;
+                req.session.isAuth = true;
+                return res.status(201).redirect('/');
 
-            res.status(201).redirect('/');
-        } else {
-            res.render('login', { data: "Invalid Password " });
+
+            } else {
+                return res.render('login', { data: "Invalid Password " });
+            }
+        } else if (employer != null) {
+            if (employer.password === thisPassword) {
+                req.session.userp = employer;
+                req.session.isAuth = true;
+                return res.status(201).redirect('/');
+
+
+            } else {
+                return res.render('login', { data: "Invalid Password " });
+            }
         }
+        // console.log(user);
+        // if (user == null) {
+        //     user = await Employee.findOne({ username: thisUsername });
+        //     console.log(user);
+        // }
+
+        // if (user == null) {
+        //     res.render('login', { data: "Invalid username or user is not regiterd yet" });
+        // }
+        // else if (user.password === thisPassword) {
+        //     req.session.userp = user;
+        //     req.session.isAuth = true;
+        //     res.status(201).redirect('/');
+
+
+        // } else {
+        //     res.render('login', { data: "Invalid Password " });
+        // }
 
 
     }
     catch (err) {
-        res.status(400).send(err);
+        res.status(400).send('you hava the error');
     }
 }
 )
+
+app.post("/logout", (req, res) => {
+    req.session.destroy();
+})
+
 
 app.use('/', (req, res) => {
     res.status(404).send("<h1>page doesn't find</h1>");
 })
 
 
-app.listen(4000, () => {
+app.listen(3000, () => {
 
     console.log("Server is started");
 
 
 })
+
+
+
 
 
 
