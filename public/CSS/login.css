@@ -31,7 +31,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .container input {
-  width: 70%;
+  width: 75%;
   height: 60%;
   background: rgb(246, 244, 244);
   /* padding-left: 8px; */
@@ -135,12 +135,13 @@ input:valid + #lab2 {
 #login-button {
   cursor: pointer;
   margin-top: 12%;
-  height: 35%;
+  height: fit-content;
   margin-left: 5%;
+  padding: 5px 5px;
   border: none;
   background-color: rgb(104, 168, 231);
   border-radius: 5px;
-  width: 7vw;
+  width: fit-content;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -158,4 +159,209 @@ input:valid + #lab2 {
 form{
  height: 100%;
  width: 100%;   
+}
+
+
+#navbar {
+  position: fixed;
+  width: 100%;
+  height: 5.5vw;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* align-items: center; */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navmenu {
+  z-index: 5;
+  float: right;
+  height: 100%;
+  width: 60%;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5vw;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  z-index: 1000;
+}
+
+.navlinks {
+  text-decoration: none;
+  color: whitesmoke;
+  font-family: monospace;
+  font-size: 2vw;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  position: relative;
+}
+
+#brand {
+  text-shadow: 0 0 15px rgb(0, 0, 0);
+  text-decoration: none;
+  position: absolute;
+  left: 150px;
+  list-style: none;
+  font-family: "Monoton", cursive;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 4vw;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+ 
+}
+
+#brand:hover {
+  text-shadow: 0 0 25px rgb(115, 255, 90);
+  color: #000000 !important;
+}
+
+/* #logo1{
+    width: 250px;
+    height: 120px;
+} */
+
+.navitem {
+  list-style: none;
+  z-index: 10;
+}
+
+#hamburger {
+  display: none;
+  width: 40px;
+  height: 30px;
+  z-index: 3;
+  position: absolute;
+  top: 30%;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+.bar {
+  display: none;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+}
+
+
+.navlinks::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  height: 2.5px;
+  width: 0px;
+  left: 0%;
+  background-color: rgb(255, 255, 255);
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+.navlinks::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  height: 2.5px;
+  width: 0px;
+  right: 0%;
+  background-color: whitesmoke;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+.navlinks:hover:after {
+  /* text-decoration: underline; */
+  width: 100%;
+}
+.navlinks:hover:before {
+  /* text-decoration: underline; */
+  width: 100%;
+}
+
+@media screen and (max-width: 768px){
+ 
+  #navbar{
+    height: 80px;
+  }
+  #brand {
+    font-size: 2.8rem;
+  }
+  #hamburger {
+    display: flex;
+    gap: 7px;
+
+    z-index: 100;
+  }
+  .navlinks.active {
+    color: rgb(255, 72, 0);
+    text-shadow: none;
+  }
+  #hamburger.active {
+    z-index: 1000;
+  }
+  #hamburger.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+    background-color: rgba(255, 72, 0);
+    z-index: 100;
+  }
+  #hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+    background-color: rgba(255, 72, 0);
+    z-index: 100;
+  }
+  .bar {
+    display: block;
+    z-index: 100;
+  }
+  .navmenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: -52vw;
+    background-color: black;
+    height: 100vh;
+    width: 40vw;
+    z-index: 5;
+  }
+  .navmenu.active {
+    left: 0;
+  }
+  .navmenu.active:before {
+    content: "LEP";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    letter-spacing: 4px;
+    font-family: "Monoton", cursive;
+    font-size: 2rem;
+  }
+
+}
+
+@media screen and (max-width: 900px){
+  .loginsgv{
+    display: none;
+  }
+  .loginbox .container{
+    width:fit-content;
+  }
 }

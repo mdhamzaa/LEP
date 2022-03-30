@@ -105,6 +105,10 @@ app.get('/contact-us', (req, res) => {
 })
 
 
+app.get('/search', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'search_page.html'));
+})
+
 //all post requests
 
 
