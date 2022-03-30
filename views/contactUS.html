@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactPage</title>
+    <link rel="stylesheet" href="/CSS/contactUS.css">
+    <!-- <script src="https://kit.fontawesome.com/e42e24442d.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Courgette&family=Faster+One&family=Passion+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+        
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+    </style>
+</style>
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <span id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </span>
+        <li id="brand"><a href="#" style="color:whitesmoke;text-decoration: none;">
+                LEP
+            </a></li>
+        <ul class="navmenu" id="navmenu">
+
+            <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
+            <li class="navitem"><a href="/contact-us" class="navlinks disappear">Contact Us</a></li>
+       
+            <li class="navitem"><form action="/logout" method="post"><button type="submit"  class="navlinks" style="background-color: transparent;border: none;" >Logout Out</button></form</li>
+
+        </ul>
+    </nav>
+    <div class="parent">
+        <div class="bubble" id="bubble1"></div>
+        <div class="bubble" id="bubble2"></div>
+        <div class="main">
+
+
+            <div class="contact">
+                <h1 id="contactHead">Contact us</h1>
+                <div class="contactContainer">
+                    <p>Fill Up the form our team will get back to you<br>
+                        as soon as possible within 24 hours</p>
+                    <ul id="addressUl">
+                        <li><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;517531 SriCity Andhra Pradesh</li>
+                        <li><i class="fa-solid fa-square-phone"></i>&nbsp;&nbsp;99914XXXXX</li>
+                        <li><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;lepcustomer@gmail.com</li>
+                    </ul>
+                    <div class="lep">
+                        <h3>Connect with LEP through Social Media</h3>
+                    </div>
+                    <div class="social">
+                        <div class="fb"><a href=""  class="brandAnchor"><i class="fa-brands fa-facebook"></i></a></div>
+                        <div class="insta"><a href="" class="brandAnchor"><i class="fa-brands fa-instagram-square"></i></a></div>
+                        <div class="yt"><a href="" class="brandAnchor"><i class="fa-brands fa-youtube"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div id="form">
+                <h4 id="qhead">Query Form</h4>
+                    <div class="form">
+                        <form action="https://formsubmit.co/khanwarish483@gmail.com" method="post">
+                        <label for="Fname">First Name</label>
+                        <input type="text" class="fields" id="Fname"  name="Fname" placeholder="Enter First name" required>
+                        <label for="Lname">Last Name</label>
+                        <input type="text" class="fields" id="Lname" name="Lname" placeholder="Enter Last Name" required>
+                        <label for="EID">Email ID</label>
+                        <input type="email" class="fields" id="EID"  name="email"placeholder="xyz@gmail.com" required="required">
+                        <label for="Mobile">Phone Number</label>
+                        <input type="number" class="fields" id="Mobile" name="Mobile" placeholder="999XXXXXX" maxlength="10" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        <label for="Mess">Your message</label>
+                        <textarea name="textmessage" id="Mess" cols="11" rows="5"
+                             name="textarea"placeholder="write your query here"></textarea>
+                        <input type="submit" class="submitBTN" name="submit" value="Send Message" required>
+                        <input type="hidden" name="_subject" value="query submission!">
+                        <input type="hidden" name="_next" value="index.html">
+                        </form>
+                    </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        let ham=document.getElementById("hamburger");
+let navmenu=document.getElementById("navmenu");
+let searchIcon=document.getElementById("searchIcon");
+let navlinks=document.querySelectorAll(".navlinks");
+ham.addEventListener('click',function(){
+    ham.classList.toggle("active");
+    navmenu.classList.toggle("active");
+    searchIcon.classList.add("active");
+    
+    for(let e of navlinks){
+        e.classList.toggle("active");
+    }
+})
+
+Array.from(navmenu.children).forEach(function(e){
+    e.addEventListener('click',function(){
+        navmenu.classList.remove("active");
+        ham.classList.remove("active");
+        searchIcon.classList.remove("active");
+       
+        for(let e of navlinks){
+            e.classList.toggle("active");
+        }
+    },true)
+})
+
+    </script>
+</body>
+
+</html>

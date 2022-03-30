@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#navbar {
+    position: fixed;
+    width: 100%;
+    height: 5.5vw;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    /* align-items: center; */
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .navmenu {
+    z-index: 5;
+    float: right;
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5vw;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    z-index: 1000;
+  }
+  
+  .navlinks {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+    font-size: 2vw;
+    font-weight: 700;
+
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    position: relative;
+  }
+  
+  #brand {
+    text-shadow: 0 0 15px rgb(0, 0, 0);
+    text-decoration: none;
+    position: absolute;
+    left: 150px;
+    list-style: none;
+    font-family: "Monoton", cursive;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 4vw;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+   
+  }
+  
+  #brand:hover {
+    text-shadow: 0 0 25px rgb(115, 255, 90);
+    color: #000000 !important;
+  }
+  
+  /* #logo1{
+      width: 250px;
+      height: 120px;
+  } */
+  
+  .navitem {
+    list-style: none;
+    z-index: 10;
+  }
+  
+  #hamburger {
+    display: none;
+    width: 40px;
+    height: 30px;
+    z-index: 3;
+    position: absolute;
+    top: 30%;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+  }
+  
+  .bar {
+    display: none;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+  }
+
+  
+  .navlinks::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 2.5px;
+    width: 0px;
+    left: 0%;
+    background-color: rgb(255, 255, 255);
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+  }
+  
+  .navlinks::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    height: 2.5px;
+    width: 0px;
+    right: 0%;
+    background-color: whitesmoke;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+  }
+  .navlinks:hover:after {
+    /* text-decoration: underline; */
+    width: 100%;
+  }
+  .navlinks:hover:before {
+    /* text-decoration: underline; */
+    width: 100%;
+  }
+
+textarea{
+    background-color: rgba(0,0,0,0.2);
+color: rgb(245, 245, 245);
+border-radius: 5px;
+margin: 10px 0;
+padding: 10px;
+}
+.fields{
+    background-color: rgba(0,0,0,0.2);
+color: rgb(245, 245, 245);
+border-radius: 5px;
+margin: 8px 0;
+padding: 6px;
+}
+.parent{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+.main {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    grid-gap: 0.5em;
+    font-size: 1em;
+    background-color: rgba(193, 193, 193, 0.2);
+    color: rgb(255, 255, 255);
+    /* margin: 10vh 20vw; */
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1rem;
+    /* position: absolute;
+    top:14%;
+    left:10%; */
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgb(255, 255, 255);
+
+}
+.form {
+    display: grid;
+    grid-template-rows: auto;
+    font-weight: bold;
+    z-index: 100;
+
+}
+#form {
+    background-color: rgb(255, 255, 255,0.2);
+    margin: 3vh;
+    border-radius: 1em;
+    color: rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 1em;
+    height: 80vh;
+    margin: 30px 30px;
+    z-index: 100;
+    
+}
+.contact {
+    padding: 1em;
+    text-align: left;
+    margin: 1em;
+    margin-bottom: 0em;
+    z-index: 100;
+}
+#qhead{
+    margin-top: 0em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#addressUl{
+    
+    
+    list-style: none;
+}
+/* f */
+
+
+p{
+    font-family: 'Courgette', cursive;
+    font-size: 2rem;
+}
+
+input{
+    border: none;
+    padding: 0.3em;
+    font-weight: normal;
+    margin-bottom: 2em;
+    border-top-width: initial;
+    border-right-width: initial;
+    border-left-width: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-style: none none none;
+    border-image: initial;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+label {
+    text-align: left;
+}
+.submitBTN {
+    background-color: rgba(0,0,0,0.7);
+    margin: 1.5em;
+    width: fit-content;
+    
+    justify-self: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 2em;
+    padding: 10px;
+    box-shadow:  0 0 5px rgb(255, 0, 208);
+}
+.submitBTN:hover {
+    background-color: rgb(3, 3, 3);
+    transition: ease-in-out 0.6s;
+    cursor: pointer;
+}
+#Mess {
+    resize: none;
+}
+.social {
+    display: grid;
+    grid-template-columns: repeat(3, 6vw);
+    margin-top: 2em;
+    margin-bottom: 3em;
+    justify-content: center;
+    width: 30vw;
+}
+.brandAnchor {
+    color: rgb(255, 255, 255);
+    font-size: x-large;   
+}
+#contactHead{
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-family: 'Bungee inline', cursive;
+    font-weight: 100;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    font-size: 2.5rem;
+    margin-top: 0%;
+    text-decoration: underline;
+}
+
+.contactContainer{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.lep h3{
+    font-size: 1.5em;
+    font-family:  monospace;
+    margin-top: 10px;
+    color: #e9f321ec;
+    word-spacing: 1px;
+    margin-bottom: 0px;
+   }
+.fb,.yt,.insta{
+    text-align: center;
+    border-radius: 100%;
+    width: fit-content;
+}
+.fb{
+    background-color: #2196f3;
+
+}
+.insta{
+    background-color: #d06400;
+}
+.yt{
+    background-color: #ff0000;
+}
+.bubble{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    z-index: 0;
+    
+}
+
+#bubble1{
+    position: absolute;
+    top:-10%;
+    left:-8%;
+    background: linear-gradient(#ffc107,#e91e63);
+}
+
+#bubble2{
+    position: absolute;
+    bottom:-10%;
+    right:-8%;
+    background: linear-gradient(#2196f3,#31ff38);
+}
+
+@media screen and (max-width: 768px){
+ .main{
+     display: flex;
+     flex-direction: column;
+ }
+ #bubble1{
+    top:-18%;
+    left:-8%;
+ }
+ #bubble2{
+    bottom: -18%;
+    right:-8%;
+ }
+ #navbar {
+    height: 80px;
+
+    justify-content: center;
+  }
+
+  #brand {
+    font-size: 2.8rem;
+  }
+  #hamburger {
+    display: flex;
+    gap: 7px;
+
+    z-index: 100;
+  }
+  .navlinks.active {
+    color: rgb(255, 72, 0);
+    text-shadow: none;
+  }
+  #hamburger.active {
+    z-index: 1000;
+  }
+  #hamburger.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+    background-color: rgba(255, 72, 0);
+    z-index: 100;
+  }
+  #hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+    background-color: rgba(255, 72, 0);
+    z-index: 100;
+  }
+  .bar {
+    display: block;
+    z-index: 100;
+  }
+  .navmenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: -52vw;
+    background-color: black;
+    height: 100vh;
+    width: 40vw;
+    z-index: 5;
+  }
+  .navmenu.active {
+    left: 0;
+  }
+  .navmenu.active:before {
+    content: "LEP";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    letter-spacing: 4px;
+    font-family: "Monoton", cursive;
+    font-size: 2rem;
+  }
+
+}

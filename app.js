@@ -62,14 +62,14 @@ const isAuth = (req, res, next) => {
 
 app.get('/', (req, res) => {
 
-    console.log(req.session.userp.username);
+
     if (req.session.isAuth) {
 
         return res.render('index', { name: req.session.userp.username, route: '/dashboard' });
     }
 
     // req.session.isAuth = true;
-    res.render('index', { name: 'Sign Up/Lg In', route: '/login' });
+    res.render('index', { name: 'Sign Up/Log In', route: '/login' });
 
 
 })
@@ -98,6 +98,10 @@ app.get('/dashboard', isAuth, (req, res) => {
 
     res.render('UserProfile', req.session.userp);
 
+})
+
+app.get('/contact-us', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'contactUS.html'));
 })
 
 
@@ -274,7 +278,7 @@ app.post('/login', async (req, res) => {
 
 app.post("/logout", (req, res) => {
     req.session.destroy();
-    res.render('index', { name: 'Sign Up/Lg In', route: '/login' });
+    res.render('index', { name: 'Sign Up/Log In', route: '/login' });
 })
 
 
