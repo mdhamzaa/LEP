@@ -147,3 +147,8 @@ div.content {
 #top {
   margin-top: 20px;
 }
+
+.fetch {
+  margin-left: 150px;
+  display: inline-block;
+}

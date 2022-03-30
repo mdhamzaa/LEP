@@ -62,8 +62,16 @@ const isAuth = (req, res, next) => {
 
 app.get('/', (req, res) => {
 
+    console.log(req.session.userp.username);
+    if (req.session.isAuth) {
+
+        return res.render('index', { name: req.session.userp.username, route: '/dashboard' });
+    }
+
     // req.session.isAuth = true;
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.render('index', { name: 'Sign Up/Lg In', route: '/login' });
+
+
 })
 app.get('/login', (req, res) => {
     res.render('login', { data: " " });
@@ -266,7 +274,7 @@ app.post('/login', async (req, res) => {
 
 app.post("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect('/');
+    res.render('index', { name: 'Sign Up/Lg In', route: '/login' });
 })
 
 
