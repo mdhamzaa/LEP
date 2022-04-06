@@ -128,7 +128,7 @@ app.post('/employee-registration', async (req, res) => {
         Gender,
         birthday,
         address,
-        pincode1,
+        Pincode1,
         pnum,
         Skills,
         Experience,
@@ -149,7 +149,7 @@ app.post('/employee-registration', async (req, res) => {
             gender: Gender,
             dob: birthday,
             address,
-            pincode: pincode1,
+            pincode: Pincode1,
             phone: pnum,
             Skills,
             Exp: Experience,
@@ -163,7 +163,7 @@ app.post('/employee-registration', async (req, res) => {
         res.redirect('/login');
     }
     catch (error) {
-        res.status(400).send(error);
+        res.status(400).send("there is an error");
     }
 
     // }
@@ -172,7 +172,7 @@ app.post('/employee-registration', async (req, res) => {
 
 app.post('/employer-registration', async (req, res) => {
 
-
+    // console.log(req.body)
 
     // let obj1 = await Employee.findOne({ username: username })
     // let obj2 = await Employer.findOne({ username: username })
@@ -186,7 +186,7 @@ app.post('/employer-registration', async (req, res) => {
         Gender,
         birthday,
         address,
-        pincode1,
+        Pincode,
         pnum,
         password
     } = req.body;
@@ -200,7 +200,7 @@ app.post('/employer-registration', async (req, res) => {
             gender: Gender,
             dob: birthday,
             address,
-            pincode: pincode1,
+            pincode: Pincode,
             phone: pnum,
             password
         })
@@ -211,7 +211,7 @@ app.post('/employer-registration', async (req, res) => {
     }
 
     catch (error) {
-        res.status(400).send(error);
+        res.status(400).send("there is an error");
     }
 
     // }
