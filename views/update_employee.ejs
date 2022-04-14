@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Employee registration form</title>
+    <link rel="stylesheet" href="/CSS/ER_styles.css" type="text/css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Courgette&family=Faster+One&family=Passion+One&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Satisfy&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Merienda+One&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
+
+      @media screen and (max-width: 768px) {
+        div#register {
+          margin: 550px 0;
+        }
+
+        #register {
+          width: 100vw;
+        }
+
+        #brand {
+          font-size: 2.8rem;
+        }
+
+        #hamburger {
+          display: flex;
+          gap: 7px;
+
+          z-index: 100;
+        }
+
+        .navlinks.active {
+          color: rgb(255, 72, 0);
+          text-shadow: none;
+        }
+
+        #hamburger.active {
+          z-index: 1000;
+        }
+
+        #hamburger.active .bar:nth-child(1) {
+          transform: translateY(11px) rotate(45deg);
+          background-color: rgba(255, 72, 0);
+          z-index: 100;
+        }
+
+        #hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        #hamburger.active .bar:nth-child(3) {
+          transform: translateY(-11px) rotate(-45deg);
+          background-color: rgba(255, 72, 0);
+          z-index: 100;
+        }
+
+        .bar {
+          display: block;
+          z-index: 100;
+        }
+
+        .navmenu {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          left: -52vw;
+          background-color: black;
+          height: 100vh;
+          width: 40vw;
+          z-index: 5;
+        }
+
+        .navmenu.active {
+          left: 0;
+        }
+
+        .navmenu.active:before {
+          content: "LEP";
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          letter-spacing: 4px;
+          font-family: "Monoton", cursive;
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <span id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </span>
+      <li id="brand">
+        <a href="/" style="color: whitesmoke; text-decoration: none"> LEP </a>
+      </li>
+      <ul class="navmenu" id="navmenu">
+        <li class="navitem">
+          <a
+            href="/"
+            class="navlinks disappear"
+            style="color: whitesmoke; text-decoration: none"
+            >Home</a
+          >
+        </li>
+        <li class="navitem">
+          <a
+            href="/contact-us"
+            class="navlinks disappear"
+            style="color: whitesmoke; text-decoration: none"
+            >Contact Us</a
+          >
+        </li>
+
+        <li class="navitem">
+          <form action="/logout" method="post">
+            <button
+              type="submit"
+              class="navlinks"
+              style="background-color: transparent; border: none"
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main">
+      <div class="register">
+        <h2 id="er_head">Employee Registration</h2>
+        <hr />
+        <br />
+        <form id="register" method="post" action="/update">
+          <label for="uname">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="uname"
+            required="required"
+            value="<%=username%>"
+            class="esignup"
+          />
+          <br /><br />
+          <label for="level">Level</label>
+          <input type="text" name="level" id="level" value="employee" />
+          <br /><br />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value="<%=  email %>"
+            required="required"
+            class="esignup"
+          />
+          <br /><br />
+          <label for="fname">Firstname</label>
+          <input
+            type="text"
+            name="fname"
+            id="fname"
+            required="required"
+            value="<%=  fname %>"
+            class="esignup"
+          />
+          <br /><br />
+          <label for="lname">Lastname</label>
+          <input
+            type="text"
+            name="lname"
+            id="lname"
+            value="<%=  lname %>"
+            required="required"
+            class="esignup"
+          />
+          <br /><br />
+          <label>Gender</label>
+          &nbsp;&nbsp;&nbsp;
+          <input type="radio" name="Gender" id="male" value="male" />
+          &nbsp;
+          <span id="male">Male</span>
+          &nbsp;&nbsp;&nbsp;
+          <input type="radio" name="Gender" id="female" value="female" />
+          &nbsp;
+          <span id="female">Female</span>
+          <br /><br />
+          <label for="birthday">Date of birth </label>
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            value="<%=  dob %>"
+            required="required"
+          />
+          <br /><br />
+          <label for="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            value="<%=  address %>"
+            required="required"
+            class="esignup"
+          />
+          <br /><br />
+          <label for="pcode1">Pincode 1</label>
+          <input
+            type="number"
+            name="Pincode1"
+            id="pcode1"
+            required="required"
+            class="esignup"
+            maxlength="6"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          />
+          <br /><br />
+          <label for="pcode2">Pincode 2</label>
+          <input
+            type="number"
+            name="Pincode1"
+            id="pcode2"
+            required="required"
+            class="esignup"
+            maxlength="6"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          />
+          <br /><br />
+          <label for="pcode3">Pincode 3</label>
+          <input
+            type="number"
+            name="Pincode1"
+            id="pcode3"
+            required="required"
+            class="esignup"
+            maxlength="6"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          />
+          <br /><br />
+          <label for="pnum">Mobile number</label>
+          <input
+            type="number"
+            name="pnum"
+            id="pnum"
+            value="<%=  phone %>"
+            maxlength="10"
+            class="esignup"
+            maxlength="10"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          />
+          <br /><br />
+          <label for="skills">Skills</label>
+          <input
+            type="text"
+            name="Skills"
+            id="skills"
+            value="<%=  Skills %>"
+            class="esignup"
+            required="required"
+          />
+          <br /><br />
+          <label for="exp">Experience</label>
+          <input
+            type="text"
+            name="Experience"
+            id="exp"
+            value="<%=  Exp %>"
+            class="esignup"
+            required="required"
+          />
+          <br /><br />
+          <label for="password">Password</label
+          ><i id="eye" class="fa-solid fa-eye-slash" onclick="toggle()"></i>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value="<%=  password %>"
+            class="esignup"
+            onkeyup="strength()"
+            required="required"
+          />
+          <div id="pass_strength">
+            <span id="red">&nbsp;&nbsp;</span>
+            <span id="yellow">&nbsp;&nbsp;</span>
+            <span id="green">&nbsp;&nbsp;</span>
+          </div>
+          <label for="" id="pass_result"></label>
+
+          <br /><br />
+          <label for="cpassword">Confirm password</label>
+          <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            class="esignup"
+            required="required"
+            onkeyup="vali_pass()"
+          />
+          <br />
+          <h3 id="message"></h3>
+          <input
+            type="submit"
+            value="Update"
+            name="submit"
+            id="submit"
+            class="btn"
+          />
+          <br />
+        </form>
+      </div>
+    </div>
+    <script src="/JS/ER.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0029b00133.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

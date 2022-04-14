@@ -97,9 +97,11 @@ app.get('/employee-registration', (req, res) => {
 })
 
 app.get('/dashboard', isAuth, (req, res) => {
-
-    res.render('UserProfile', req.session.userp);
-
+    if (req.session.userp.level == 'employee') {
+        return res.render('employee_profile', req.session.userp);
+    } else {
+        return res.render('employer_profile', req.session.userp);
+    }
 })
 
 app.get('/contact-us', (req, res) => {
@@ -308,8 +310,106 @@ app.post('/delete', async (req, res) => {
     res.render('index', { name: 'Sign Up/Log In', route: '/login' });
 })
 
-app.post('/update', (req, res) => {
 
+
+app.post('/update-user', async (req, res) => {
+    if (req.session.userp.level == 'employee') {
+
+        const employee = await Employee.findOne({ username: req.session.userp.username });
+        console.log(employee);
+        res.render('update_employee', req.session.userp);
+    }
+    else {
+        const employer = await Employer.deleteOne({ username: req.session.userp.username });
+        console.log(employer)
+    }
+
+
+})
+app.post('/update', async (req, res) => {
+    // console.log(req.body)
+    if (req.session.userp.level == 'employee') {
+        const {
+            username,
+            level,
+            email,
+            fname,
+            lname,
+            Gender,
+            birthday,
+            address,
+            Pincode1,
+            pnum,
+            Skills,
+            Experience,
+            password
+        } = req.body;
+
+        var newvalues = {
+            $set: {
+                username,
+                level,
+                email,
+                fname,
+                lname,
+                gender: Gender,
+                dob: birthday,
+                address,
+                pincode: Pincode1,
+                phone: pnum,
+                Skills,
+                Exp: Experience,
+                password
+
+            }
+        };
+        const employee = await Employee.updateOne({ username: req.session.userp.username }, newvalues);
+        const Newemployee = await Employee.findOne({ username: req.session.userp.username });
+        req.session.userp = Newemployee;
+        // console.log(employee);
+
+    }
+    else {
+        const {
+            username,
+            level,
+            email,
+            fname,
+            lname,
+            Gender,
+            birthday,
+            address,
+            Pincode,
+            pnum,
+            password
+        } = req.body;
+
+
+        var newvalues = {
+            $set: {
+                username,
+                level,
+                email,
+                fname,
+                lname,
+                gender: Gender,
+                dob: birthday,
+                address,
+                pincode: Pincode,
+                phone: pnum,
+                password
+            }
+        };
+
+
+        const employer = await Employer.updateOne({ username: req.session.userp.username }, newvalues);
+
+        const Newemployer = await Employer.findOne({ username: req.session.userp.username });
+        req.session.userp = Newemployer;
+        console.log(employer)
+    }
+
+    res.redirect('/dashboard');
 })
 
 // app.use('/', (req, res) => {
