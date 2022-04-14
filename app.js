@@ -1,10 +1,12 @@
 
 // core Modules
+
 const path = require('path');
 
 const database = require('./database.js');
 const Employee = require(__dirname + '/public/models/employee.js');
 const Employer = require(__dirname + '/public/models/employer.js');
+
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 // const Register = require('./register.js');
@@ -85,7 +87,7 @@ app.get('/registration-choice', (req, res) => {
 
 app.get('/employer-registration', (req, res) => {
 
-    res.sendFile(path.join(__dirname, 'views', 'employer_registration.html'));
+    res.render('employer_registration', { uEror: "" })
 
 })
 app.get('/employee-registration', (req, res) => {
@@ -159,7 +161,7 @@ app.post('/employee-registration', async (req, res) => {
         // console.log(registerEmployee);
 
         const registered = await registerEmployee.save();
-        console.log(registered);
+        // console.log(registered);
         res.redirect('/login');
     }
     catch (error) {
@@ -172,49 +174,54 @@ app.post('/employee-registration', async (req, res) => {
 
 app.post('/employer-registration', async (req, res) => {
 
-    // console.log(req.body)
+    const thisUsername = req.body.username;
+    const thisPassword = req.body.password;
 
-    // let obj1 = await Employee.findOne({ username: username })
-    // let obj2 = await Employer.findOne({ username: username })
-    // if (obj1 == null && obj2 == null) {
-    const {
-        username,
-        level,
-        email,
-        fname,
-        lname,
-        Gender,
-        birthday,
-        address,
-        Pincode,
-        pnum,
-        password
-    } = req.body;
-    try {
-        const registerEmployer = new Employer({
+    const employer = await Employer.findOne({ username: thisUsername });
+    const employee = await Employee.findOne({ username: thisUsername });
+
+    if (employee == null && employer == null) {
+        const {
             username,
             level,
             email,
             fname,
             lname,
-            gender: Gender,
-            dob: birthday,
+            Gender,
+            birthday,
             address,
-            pincode: Pincode,
-            phone: pnum,
+            Pincode,
+            pnum,
             password
-        })
+        } = req.body;
+        try {
+            const registerEmployer = new Employer({
+                username,
+                level,
+                email,
+                fname,
+                lname,
+                gender: Gender,
+                dob: birthday,
+                address,
+                pincode: Pincode,
+                phone: pnum,
+                password
+            })
 
-        const registered = await registerEmployer.save();
-        console.log(registered);
-        res.redirect('/login');
+            const registered = await registerEmployer.save();
+            // console.log(registered);
+            res.redirect('/login');
+        }
+
+
+        catch (error) {
+            res.status(400).send("there is an error");
+        }
     }
 
-    catch (error) {
-        res.status(400).send("there is an error");
-    }
+    res.render('employer_registration', { uEror: "User name is already registered" })
 
-    // }
 
 })
 
@@ -286,9 +293,28 @@ app.post("/logout", (req, res) => {
 })
 
 
-app.use('/', (req, res) => {
-    res.status(404).send("<h1>page doesn't find</h1>");
+
+app.post('/delete', async (req, res) => {
+    if (req.session.userp.level == 'employee') {
+
+        const employee = await Employee.deleteOne({ username: req.session.userp.username });
+        console.log(employee)
+    }
+    else {
+        const employer = await Employer.deleteOne({ username: req.session.userp.username });
+        console.log(employer)
+    }
+    req.session.destroy();
+    res.render('index', { name: 'Sign Up/Log In', route: '/login' });
 })
+
+app.post('/update', (req, res) => {
+
+})
+
+// app.use('/', (req, res) => {
+//     res.status(404).send("<h1>page doesn't find</h1>");
+// })
 
 
 app.listen(3000, () => {
@@ -303,5 +329,8 @@ app.listen(3000, () => {
 
 
 
-
-
+// * Pandiing work
+//! deletew the user
+//! update the user
+//! serach page
+//! Add to cart
