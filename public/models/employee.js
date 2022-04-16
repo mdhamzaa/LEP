@@ -34,7 +34,7 @@ const employeeSchema = new mongoose.Schema({
     },
 
     pincode: {
-        type: Number
+        type: Array
     },
     phone: {
         type: Number

@@ -110,19 +110,15 @@ app.get('/contact-us', (req, res) => {
 
 
 app.get('/search', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'search_page.html'));
+    res.render('search_page', { username: "fdsgfds", Skills: 'dsf' })
 })
 
 //all post requests
 
 
-app.post('/', (req, res) => {
-
-    //send to the search page
-})
 
 app.post('/employee-registration', async (req, res) => {
-
+    console.log(req.body)
     const {
         username,
         level,
@@ -160,14 +156,14 @@ app.post('/employee-registration', async (req, res) => {
             password
         })
 
-        // console.log(registerEmployee);
+        console.log(registerEmployee);
 
         const registered = await registerEmployee.save();
         // console.log(registered);
         res.redirect('/login');
     }
     catch (error) {
-        res.status(400).send("there is an error");
+        res.status(400).send(error);
     }
 
     // }
@@ -412,6 +408,18 @@ app.post('/update', async (req, res) => {
     res.redirect('/dashboard');
 })
 
+app.post('/search', async (req, res) => {
+    const searchDetail = {
+        // pincode: req.body.pincode,
+        Skills: req.body.skills
+    }
+
+    const allemployee = await Employee.find(searchDetail);
+    console.log(allemployee);
+    res.render('search_page', { userData: allemployee });
+})
+
+
 // app.use('/', (req, res) => {
 //     res.status(404).send("<h1>page doesn't find</h1>");
 // })
@@ -430,7 +438,7 @@ app.listen(3000, () => {
 
 
 // * Pandiing work
-//! deletew the user
-//! update the user
+
+
 //! serach page
 //! Add to cart

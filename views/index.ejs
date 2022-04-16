@@ -51,12 +51,18 @@
             <span id="leftBgChange"><img class="arrowImg" id="leftArrow" src="/Images/arrow.svg" alt=""></span>
             <span id="rightBgChange"><img class="arrowImg" id="rightArrow" src="/Images/arrow.svg" alt=""></span>
         </div>
-
+    <form action="/search" method="post">
         <div class="inputs">
-            <input type="text" name="" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}" maxlength="6">
-            <div id="searchDiv"><img id="searchIcon" src="/Images/search-svgrepo-com.svg" /><input type="text" name=""
-                    id="search" placeholder="Search for services..."></input></div>
+           
+            <input type=number name="pincode" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}" maxlength="6">
+            <div id="searchDiv"><img id="searchIcon" src="/Images/search-svgrepo-com.svg" />
+             <input type="text" name="skills"
+                    id="search" placeholder="Search for services..."></input>
+            <input type="submit" value="Submit" >
+                </div>
+           
         </div>
+             </form>
     </div>
 
     <nav id="navbar">
