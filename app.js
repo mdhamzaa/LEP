@@ -7,6 +7,7 @@ const database = require('./database.js');
 const Employee = require(__dirname + '/public/models/employee.js');
 const Employer = require(__dirname + '/public/models/employer.js');
 const Booking = require(__dirname + '/public/models/order.js');
+const Admin = require(__dirname + '/public/models/admin.js');
 
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -230,12 +231,19 @@ app.post('/employer-registration', async (req, res) => {
 app.post('/login', async (req, res) => {
 
 
+
+
+
+
     try {
         const thisUsername = req.body.username;
         const thisPassword = req.body.password;
         const employer = await Employer.findOne({ username: thisUsername });
         const employee = await Employee.findOne({ username: thisUsername });
-
+        const admin = await Admin.findOne({ username: thisUsername });
+        if (admin != null) {
+            return res.render('admin');
+        }
         // console.log(employee);
         // console.log(employer);
         if (employee == null && employer == null) {
@@ -425,7 +433,13 @@ app.post('/search', async (req, res) => {
 })
 
 
+app.get('/payments', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'paymentdetails.html'));
+})
 
+app.post('/payments/success', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'success.html'));
+})
 
 
 
@@ -477,13 +491,17 @@ app.post('/booking', async (req, res) => {
 
 app.post('/order/cancel', async (req, res) => {
 
-    const book = await Booking.deleteOne({ employee: req.body.employee, timeslot: req.body.timeslot });
+    const book = await Booking.updateOne({ employee: req.body.employee, timeslot: req.body.timeslot }, {
+        $set: {
+            status: 'rejected',
+        }
 
+    });
 
 })
 
 
-app.post('/order/complete', (req, res) => {
+app.post('/order/complete', async (req, res) => {
 
     const book = await Booking.updateOne({ employee: req.body.employee, timeslot: req.body.timeslot }, {
         $set: {
