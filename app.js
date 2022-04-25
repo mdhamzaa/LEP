@@ -442,31 +442,62 @@ app.post('/search', async (req, res) => {
 
 //booking
 
-app.get('/booking', async (req, res) => {
+app.post('/booking', async (req, res) => {
 
-    const employe = await Employer.findOne({ username: "hamza" });
-    const employr = await Employee.findOne({ username: "john" });
+    const employe = await Employer.findOne({ username: req.session.userp.username });
+    const employr = await Employee.findOne({ username: req.body.username });
     const employee = employe.username;
     const employer = employr.username;
     console.log()
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
-    const timeslot = '9:00 AM'
+    const timeslot = req.body.timeslot;
+    const book = await Booking.findOne({ employee, timeslot });
+    if (book == null) {
 
-    const booking = new Booking({
-        employee,
-        employer,
-        date,
-        timeslot
-    })
-    console.log(booking)
-    const registered = await booking.save();
-    res.send("data is send");
+        const booking = new Booking({
+            employee,
+            employer,
+            date,
+            timeslot
+        })
+
+        console.log(booking)
+        const registered = await booking.save();
+        return res.send("data is send");
+
+
+    }
+
+    res.send("boooking is not avilable");
+
+})
+
+
+app.post('/order/cancel', async (req, res) => {
+
+    const book = await Booking.deleteOne({ employee: req.body.employee, timeslot: req.body.timeslot });
 
 
 })
 
+
+app.post('/order/complete', (req, res) => {
+
+    const book = await Booking.updateOne({ employee: req.body.employee, timeslot: req.body.timeslot }, {
+        $set: {
+            status: 'complete',
+        }
+    });
+})
+
+
+
+
+app.post('/admin', (req, res) => {
+
+})
 
 
 
