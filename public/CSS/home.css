@@ -275,6 +275,19 @@ body {
   gap: 15px;
 }
 
+#searchSubmit{
+  font-size: 1.2rem;
+  width:fit-content;
+  height:fit-content;
+  padding: 5px 10px;
+  background-color:rgb(0, 136, 255);
+  color:white;
+  font-family: monospace;
+  border-radius:5px;
+  margin:  8px 50px;
+  cursor: pointer;
+}
+
 #pincode {
   border-radius: 10px;
   border: 0px;
@@ -802,9 +815,9 @@ body {
   transition-duration: 0.3s;
   transition-timing-function: linear;
 }
-
+/* 
 #topHead:hover {
-}
+} */
 
 #topHead:hover:after {
   /* text-decoration: underline; */

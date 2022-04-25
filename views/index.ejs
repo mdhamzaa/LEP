@@ -51,18 +51,21 @@
             <span id="leftBgChange"><img class="arrowImg" id="leftArrow" src="/Images/arrow.svg" alt=""></span>
             <span id="rightBgChange"><img class="arrowImg" id="rightArrow" src="/Images/arrow.svg" alt=""></span>
         </div>
-    <form action="/search" method="post">
-        <div class="inputs">
-           
-            <input type=number name="pincode" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}" maxlength="6">
-            <div id="searchDiv"><img id="searchIcon" src="/Images/search-svgrepo-com.svg" />
-             <input type="text" name="skills"
-                    id="search" placeholder="Search for services..."></input>
-         
+        <form action="/search" method="post">
+            <div class="inputs">
+
+                <input type=number name="pincode" id="pincode" placeholder="Enter Pincode" pattern="[0-9]{6}"
+                    maxlength="6">
+                <div id="searchDiv"><img id="searchIcon" src="/Images/search-svgrepo-com.svg" />
+                    <input type="text" name="skills" id="search" placeholder="Search for services..."></input>
+
                 </div>
+                
+                <input type="submit" value="Search" id="searchSubmit">
+
+
             </div>
-            <input type="submit" value="Submit" >
-             </form>
+        </form>
     </div>
 
     <nav id="navbar">
@@ -78,9 +81,12 @@
 
             <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
             <li class="navitem"><a href="/contact-us" class="navlinks disappear">Contact Us</a></li>
-            <li class="navitem"><a href=<%= route %> class="navlinks"><%= name %></a></li>
-            <li class="navitem"><form action="/logout" method="post"><button type="submit"  class="navlinks" style="background-color: transparent;border: none;" >Logout</button></form></li>
-                <!-- Sign Up/Log In -->
+            <li class="navitem"><a href=<%=route %> class="navlinks"><%= name %></a></li>
+            <li class="navitem">
+                <form action="/logout" method="post"><button type="submit" class="navlinks"
+                        style="background-color: transparent;border: none;">Logout</button></form>
+            </li>
+            <!-- Sign Up/Log In -->
         </ul>
     </nav>
 
@@ -139,7 +145,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i></div>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
                 </div>
             </div>
             <div class="topCards card-center" id="card2">
@@ -151,7 +158,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i></div>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
             </div>
             <div class="topCards card-right" id="card3">
@@ -163,7 +171,8 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i></div>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
                 </div>
             </div>
 

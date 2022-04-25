@@ -101,12 +101,19 @@ app.get('/employee-registration', (req, res) => {
 
 })
 
-app.get('/dashboard', isAuth, (req, res) => {
+app.get('/dashboard', isAuth, async (req, res) => {
+
     if (req.session.userp.level == 'employee') {
-        return res.render('employee_profile', req.session.userp);
+        const book = await Booking.find({ employee: req.session.userp.username });
+        console.log(book)
+        // return res.render('employee_profile', { d: req.session.userp, book });
     } else {
-        return res.render('employer_profile', req.session.userp);
+        const book = await Booking.find({ employer: req.session.userp.username });
+        const details = { d: req.session.userp, udata: book }
+
+        return res.render('employer_profile', { d: req.session.userp, udata: book });
     }
+
 })
 
 app.get('/contact-us', (req, res) => {

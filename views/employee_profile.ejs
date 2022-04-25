@@ -65,16 +65,16 @@
       </div>
        <div class="display">
            <div class="headings list-group">
-              <h4 class="list-group-item list-group-item-action">Username :-<p class="fetch"> <%= username %> </p></h4> 
+              <h4 class="list-group-item list-group-item-action">Username :-<p class="fetch"> <%= d.username %> </p></h4> 
         
-              <h4 class="list-group-item list-group-item-action">Email :-<p class="fetch"><%=  email %> </p>  </h4>
-              <h4 class="list-group-item list-group-item-action">Firstname :-<p class="fetch"></p> <%=  fname %></p></h4>
-              <h4 class="list-group-item list-group-item-action">Lastname :<p class="fetch"> <%= lname %></p></h4>
-              <h4 class="list-group-item list-group-item-action">Gender :-<p class="fetch"> <%= gender %></p></h4>
-              <h4 class="list-group-item list-group-item-action">Address :-<p class="fetch"> <%= address %></p></h4>
-              <h4 class="list-group-item list-group-item-action">Address :-<p class="fetch"> <%=    pincode %></p></h4>
-              <h4 class="list-group-item list-group-item-action">Dob :-<p class="fetch"> <%= dob %></h4></p>
-              <h4 class="list-group-item list-group-item-action">mobile number:-<p class="fetch"> <%=  phone %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Email :-<p class="fetch"><%=  d.email %> </p>  </h4>
+              <h4 class="list-group-item list-group-item-action">Firstname :-<p class="fetch"></p> <%=  d.fname %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Lastname :<p class="fetch"> <%= d.lname %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Gender :-<p class="fetch"> <%= d.gender %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Address :-<p class="fetch"> <%= d.address %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Address :-<p class="fetch"> <%=    d.pincode %></p></h4>
+              <h4 class="list-group-item list-group-item-action">Dob :-<p class="fetch"> <%= d.dob %></h4></p>
+              <h4 class="list-group-item list-group-item-action">mobile number:-<p class="fetch"> <%=  d.phone %></p></h4>
             
               <form action="/delete" method="post">
              <input type="submit" value="Delete" class="btn btn-danger">
@@ -91,23 +91,35 @@
             </div>
             <div id="history">
               <div id="resultCards">
+                <% if(userData.length!=0){ var i=1; userData.forEach(function(data){%>
                 <div class="resultCard">
                     <div class="userIntro">
                         <img class='profileImg' src="/Images/dummyImg.png" alt="">
                         <div class="userNp">
-                            <span class="userName">zdvd</span>
-      
+                            <span class="userName"><%= data.username %></span>
+                            <span class="profession"><%= data.Skills%></span>
                         </div>
                     </div>
                     <div class="employeeDetails">
-                        <span class="experience"><span class="ques">Experience : </span><span class="ans"></span></span>
+                        <span class="experience"><span class="ques">Experience : </span><span class="ans"><%= data.Exp%></span></span>
                         
                         <span class="pincodes"><span class="ques">Available in areas(Pincodes) : </span><span
-                                class="ans"></span></span>
-                  </div>
+                                class="ans"><%= data.pincode%></span></span>
+                    </div>
+                    <div class="book">
+                        <button type="submit" class="bookBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Hire</button>
+                    </div>
                 </div>
+                
+                <% i++; }) %> <% } else{ %>
+                      <tr>
+                        <td >No Data Found</td>
+                      </tr>
+                      <% } %>
             </div>
-          </div>
+            
+            </div>
+         
 
         <div id="booki">
           
