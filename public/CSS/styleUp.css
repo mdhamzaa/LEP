@@ -5,7 +5,7 @@
   font-family: "Ubuntu", sans-serif;
 }
 
-/* 
+/*
   #logOut {
     position: absolute;
     bottom: 0;
@@ -13,7 +13,7 @@
     padding: 1%;
   } */
 
-.display {
+#display {
   display: flex;
   flex-direction: row;
   padding-left: 250px;
@@ -151,4 +151,10 @@ div.content {
 .fetch {
   margin-left: 150px;
   display: inline-block;
+}
+#history{
+  display: none;
+} 
+#booki{
+ display: none;
 }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/CSS/styleUp.css" />
+    <link rel="stylesheet" href="/CSS/search.css" />
     <script
       src="https://kit.fontawesome.com/1289fe8b16.js"
       crossorigin="anonymous"
@@ -31,15 +32,15 @@
             ><span> LEP</span></i></a>
         </li>
         <li>
-          <a href="#"><i class="fa-solid fa-user"></i> <span> Profile</span></a>
+          <a href="#" id="pro"><i class="fa-solid fa-user"></i> <span> Profile</span></a>
         </li>
         <li>
-          <a href="#"
+          <a href="#" id="his"
             ><i class="fa-solid fa-receipt"></i> <span> History</span></a
           >
         </li>
         <li>
-          <a href="#"
+          <a href="#" id="book"
             ><i class="fa-solid fa-book-open"></i> <span>Booking</span></a
           >
         </li>
@@ -88,23 +89,65 @@
           
              
             </div>
-            <!-- <div class="fecthers">
-                <h4 ><%= username %></h4> 
-                <h4 for=""><%=  email %></h4>
-                <h4 for=""><%=  fname %></h4>
-                <h4 for=""><%= lname %></h4>
-                <h4 for=""><%= gender %></h4>
-                <h4 for=""><%= address %></h4>
-                <h4 for=""><%= dob %></h4>
-                <h4 for=""><%=  phone %></h4>
-                <h4 for=""><%=  password %></h4>
-               
+            <div id="history">
+              <div id="resultCards">
+                <div class="resultCard">
+                    <div class="userIntro">
+                        <img class='profileImg' src="/Images/dummyImg.png" alt="">
+                        <div class="userNp">
+                            <span class="userName">zdvd</span>
+      
+                        </div>
+                    </div>
+                    <div class="employeeDetails">
+                        <span class="experience"><span class="ques">Experience : </span><span class="ans"></span></span>
+                        
+                        <span class="pincodes"><span class="ques">Available in areas(Pincodes) : </span><span
+                                class="ans"></span></span>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        <div id="booki">
           
-            </div> -->
+        <div id="resultCards">
+            <div class="resultCard">
+                <div class="userIntro">
+                    <img class='profileImg' src="/Images/dummyImg.png" alt="">
+                      <div class="userNp">
+                          <span class="userName">akhil</span>
+    
+                      </div>
+                  </div>
+                  <div class="employeeDetails">
+                      <span class="experience"><span class="ques">Expe : </span><span class="ans"></span></span>
+                      
+                      <span class="pincodes"><span class="ques">Availa: </span><span
+                              class="ans"></span></span>
+                </div>
+              </div>
+          </div>
+            </div>
        </div>
     </div>
     <script>
-      const toggle = document.querySelector(".toggle");
+      document.getElementById("his").onclick = function() {
+    document.getElementById("display").style.display = "none";
+    document.getElementById("history").style.display = "flex";
+    document.getElementById("booki").style.display = "none";
+  }
+  document.getElementById("pro").onclick = function() {
+    document.getElementById("display").style.display = "flex";
+    document.getElementById("history").style.display = "none";
+    document.getElementById("booki").style.display = "none";
+  } 
+   document.getElementById("book").onclick = function() {
+    document.getElementById("display").style.display = "none";
+    document.getElementById("history").style.display = "none";
+      document.getElementById("booki").style.display = "flex";
+  }
+  const toggle = document.querySelector(".toggle");
       const main = document.querySelector(".main");
       const sidebar = document.querySelector(".sidebar");
 
