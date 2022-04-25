@@ -209,10 +209,10 @@
                 <br><br>
                 <label for="cpassword">Confirm password</label>
                 <input type="password" name="cpassword" id="cpassword" placeholder="re enter the password"
-                    class="esignup" required="required" onkeyup="vali_pass()">
+                    class="esignup" required="required">
                 <br>
                 <h3 id="message"></h3>
-                <input type="submit" value="Submit" name="submit" id="submit" class="btn">
+                <input type="submit" value="Submit" name="submit" id="submit" class="btn" onclick="validate(event)">
                 <br>
                 <p id="AHA" class="esignup">Already have an account? <a href="/login"><b>login</a></p>
             </form>

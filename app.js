@@ -114,9 +114,7 @@ app.get('/contact-us', (req, res) => {
 })
 
 
-app.get('/search', (req, res) => {
-    res.render('search_page', { username: "fdsgfds", Skills: 'dsf' })
-})
+
 
 //all post requests
 
@@ -421,6 +419,7 @@ app.post('/update', async (req, res) => {
 })
 
 app.post('/search', async (req, res) => {
+
     const searchDetail = {
         // pincode: req.body.pincode,
         pincode: { $in: [req.body.pincode] },
@@ -428,7 +427,7 @@ app.post('/search', async (req, res) => {
     }
 
     const allemployee = await Employee.find(searchDetail);
-    console.log(req.url);
+
     res.render('search_page', { userData: allemployee });
 })
 
@@ -457,16 +456,17 @@ app.post('/payments/success', (req, res) => {
 //booking
 
 app.post('/booking', async (req, res) => {
+    console.log(req.body.username);
 
-    const employe = await Employer.findOne({ username: req.session.userp.username });
-    const employr = await Employee.findOne({ username: req.body.username });
+    const employr = await Employer.findOne({ username: req.session.userp.username });
+    const employe = await Employee.findOne({ username: req.body.username });
     const employee = employe.username;
     const employer = employr.username;
-    console.log()
+    // console.log(employe, employee);
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
-    const timeslot = req.body.timeslot;
+    const timeslot = req.body.slot;
     const book = await Booking.findOne({ employee, timeslot });
     if (book == null) {
 
@@ -479,12 +479,12 @@ app.post('/booking', async (req, res) => {
 
         console.log(booking)
         const registered = await booking.save();
-        return res.send("data is send");
+        return res.redirect("/payments");
 
 
     }
 
-    res.send("boooking is not avilable");
+
 
 })
 

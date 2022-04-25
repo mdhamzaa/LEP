@@ -13,6 +13,12 @@
     --btn-colour : rgb(104, 168, 231);
     --btn-hower : rgb(45, 45, 247);
 }
+
+#registerHead{
+    text-align: center;
+    padding: 10px 50px;
+    font-family: sans-serif;
+}
 body{
     /* background: linear-gradient(#3c3ab5,#0a096e); */
     background: var(--back-colour);

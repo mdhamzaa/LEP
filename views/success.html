@@ -129,10 +129,20 @@
             </p>
           </div>
           <div class="modal-footer">
-            <a href="/" class="btn btn-success" data-dismiss="modal"> OK </a>
+            <a href="/" class="btn btn-success" data-dismiss="modal" id="okBtn">
+              OK
+            </a>
           </div>
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      let okBtn = document.getElementById("okBtn");
+      okBtn.addEventListener("click", (e) => {
+        window.location.href = "/";
+      });
+    </script>
   </body>
 </html>
