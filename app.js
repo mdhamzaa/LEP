@@ -6,6 +6,7 @@ const path = require('path');
 const database = require('./database.js');
 const Employee = require(__dirname + '/public/models/employee.js');
 const Employer = require(__dirname + '/public/models/employer.js');
+const Booking = require(__dirname + '/public/models/order.js');
 
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -51,6 +52,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 // all get requests
+
+
+
 
 
 const isAuth = (req, res, next) => {
@@ -411,13 +415,71 @@ app.post('/update', async (req, res) => {
 app.post('/search', async (req, res) => {
     const searchDetail = {
         // pincode: req.body.pincode,
+        pincode: { $in: [req.body.pincode] },
         Skills: req.body.skills
     }
 
     const allemployee = await Employee.find(searchDetail);
-    console.log(allemployee);
+    console.log(req.url);
     res.render('search_page', { userData: allemployee });
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//booking
+
+app.get('/booking', async (req, res) => {
+
+    const employe = await Employer.findOne({ username: "hamza" });
+    const employr = await Employee.findOne({ username: "john" });
+    const employee = employe.username;
+    const employer = employr.username;
+    console.log()
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+
+    const timeslot = '9:00 AM'
+
+    const booking = new Booking({
+        employee,
+        employer,
+        date,
+        timeslot
+    })
+    console.log(booking)
+    const registered = await booking.save();
+    res.send("data is send");
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // app.use('/', (req, res) => {
@@ -440,5 +502,4 @@ app.listen(3000, () => {
 // * Pandiing work
 
 
-//! serach page
 //! Add to cart
