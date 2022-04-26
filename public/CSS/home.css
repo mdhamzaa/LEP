@@ -286,6 +286,7 @@ body {
   border-radius:5px;
   margin:  8px 50px;
   cursor: pointer;
+  border: none;
 }
 
 #pincode {

@@ -427,6 +427,7 @@ app.post('/update', async (req, res) => {
 
 app.post('/search', async (req, res) => {
 
+
     const searchDetail = {
         // pincode: req.body.pincode,
         pincode: { $in: [req.body.pincode] },
@@ -435,8 +436,10 @@ app.post('/search', async (req, res) => {
 
     const allemployee = await Employee.find(searchDetail);
 
-    res.render('search_page', { userData: allemployee });
+    res.render('search_page', { userData: allemployee, skill: req.body.skills });
 })
+
+
 
 
 app.get('/payments', (req, res) => {
@@ -497,24 +500,33 @@ app.post('/booking', async (req, res) => {
 
 
 app.post('/order/cancel', async (req, res) => {
-
-    const book = await Booking.updateOne({ employee: req.body.employee, timeslot: req.body.timeslot }, {
+    const status = 'cancel';
+    var newvalues = {
         $set: {
-            status: 'rejected',
+            status
         }
+    }
 
-    });
+    const book = await Booking.updateOne({ employee: req.body.username, timeslot: req.body.timeslot }, newvalues);
+    console.log(book)
 
+    res.redirect('/dashboard');
 })
 
 
 app.post('/order/complete', async (req, res) => {
 
-    const book = await Booking.updateOne({ employee: req.body.employee, timeslot: req.body.timeslot }, {
+    const status = 'complete';
+    var newvalues = {
         $set: {
-            status: 'complete',
+            status
         }
-    });
+    }
+
+    const book = await Booking.updateOne({ employee: req.body.username, timeslot: req.body.timeslot }, newvalues);
+    console.log(book)
+
+    res.redirect('/dashboard');
 })
 
 

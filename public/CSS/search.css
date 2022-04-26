@@ -322,7 +322,23 @@
     background-color: rgb(255, 255, 255);
    
   }
-
+  #noDataImg{
+    width: 20vw;
+    height: 20vw;
+   }
+ 
+   #notFound{
+     display: flex;
+     flex-direction: column;
+     margin: 30px 0;
+     width: 100%;
+     height: fit-content;
+   }
+ 
+   #noDataHead{
+     font-size: 1.5vw !important;
+     font-family: 'Changa', sans-serif !important;
+   }
   .searchInput{
     background-color: rgb(223, 223, 223);
     border-radius: 0.5vw;
@@ -476,6 +492,7 @@
     justify-content: center;
     height: fit-content;
     gap:20px;
+    min-height: 100vh;
   }
   .resultCard{
     height: 27vw;

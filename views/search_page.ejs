@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEP</title>
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Satisfy&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
@@ -78,7 +79,7 @@
     <div id="searchImgBox">
         <span id="searchImgBoxHead">
             <h2>Showing Search Results for&#160;&#160;&#160;</h2>
-            <h1> "&#160;change krna hai ye&#160;"</h1>
+            <h1> "&#160;<%=skill%>&#160;"</h1>
         </span>
         <svg id="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
             style="position:absolute;bottom:-10%;left:-70vw;width:170vw;">
@@ -89,6 +90,7 @@
 
     </div>
     <div id="contentContainer">
+        
         <div id="searchHead">
             <span class="searchBox"><span class="searchText">Pincode: </span><input class="searchInput"
                     type="text"></span>
@@ -125,10 +127,11 @@
                     </div>
                     
                     <%  }) %> <% } else{ %>
-                          <tr>
-                            <td >No Data Found</td>
-                          </tr>
+                        <div id="notFound">
+                            <h4 id="noDataHead">No Data Found</h4>
+                          <img src="/Images/noDataImg.png" alt="" id="noDataImg">
                           <% } %>
+                         
                 </div>
                 
             </div>
