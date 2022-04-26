@@ -485,6 +485,7 @@
     width: 100%;
   }
 
+  
   #resultCards{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,30vw));

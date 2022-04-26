@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/CSS/admin.css">
+	<link rel="stylesheet" href="/CSS/navbar1.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>admin page</title>
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+    <!-- <link rel="stylesheet" href="/CSS/search.css"> -->
+   
+</head>
+
+<body>
+    <div id="loader">
+        <div id="ring">
+
+            <span class="blurEffect" style="--i:1"></span>
+            <span class="blurEffect" style="--i:2"></span>
+            <span class="blurEffect" style="--i:3"></span>
+
+        </div>
+        <ul id="loadList">
+            <li class="dots" style="--i:0"></li>
+            <li class="dots" style="--i:1"></li>
+            <li class="dots" style="--i:2"></li>
+            <li class="dots" style="--i:3"></li>
+            <li class="dots" style="--i:4"></li>
+        </ul>
+    </div>
+    <nav id="navbar">
+        <span id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </span>
+        <li id="brand"><a href="#" style="text-decoration: none;">
+                LEP
+            </a></li>
+        <ul class="navmenu" id="navmenu">
+
+            <li class="navitem"><a href="/" class="navlinks disappear">Home</a></li>
+            <li class="navitem"><a href="/contact-us" class="navlinks disappear">Contact Us</a></li>
+            <li class="navitem"><a href=<%=route %> class="navlinks"><%= name %></a></li>
+            <li class="navitem">
+                <form action="/logout" method="post"><button type="submit" class="navlinks"
+                        style="background-color: transparent;border: none;">Logout</button></form< /li>
+                    <!-- Sign Up/Log In -->
+        </ul>
+
+
+    </nav>
+	
+
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">LEP</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+					<i class='bx bx-menu menu-btn' id="closeSb"></i>
+				
+			</li>
+			<li class="active">
+				<a href="#" id="dash">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" id="boss">
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">Employer</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" id="worker">
+					<i class='bx bxs-user-minus' ></i>
+					<span class="text">Employee</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" id="order">
+					<i class='bx bxs-cart-download' ></i>
+					<span class="text">Orders</span>
+				</a>
+			</li>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+
+		<!-- MAIN -->
+		<main>
+      <div id="three">
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3>2050</h3>
+						<p>New Orders</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-user-minus' ></i>
+					<span class="text">
+						<h3>20244</h3>
+						<p>Total Employees</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">
+						<h3>5000</h3>
+						<p>Total Employers</p>
+					</span>
+				</li>
+			</ul>
+		</main>
+		<form action="/delete" method="POST">
+			<div id="worker2">
+				<table class="table table-hover ">
+				<thead class="table-light">
+					<tr>
+						<th>UserID</th>
+						<th>Employee Name</th>
+						<th>Date OF Birth</th>
+						<th>V/D</th>
+					</tr>
+				</thead>
+				<% if(userData.length!=0){ var i=1; userData.forEach(function(data){%>
+				<tbody>
+					<tr>
+						<td><%=data.username%></td>
+						<td><%=data.fname%></td>
+						<td><%=data.dob%></td>
+						<td><button type="submit" class="cancel-btn">delete</button></td>
+					</tr>
+				</tbody>
+				<% i++; }) %> <% } %>
+			</table>
+			</div>
+		</form>
+		<form action="/delete" method="POST">
+			<div id="boss2">
+				<table class="table table-hover">
+				<thead class="table-light">
+					<tr>
+						<th>UserID</th>
+						<th>Employer Name</th>
+						<th>Date OF Birth</th>
+						<th>V/D</th>
+					</tr>
+				</thead>
+				<% if(uData.length!=0){ var i=1; uData.forEach(function(data){%>
+					<tbody>
+						<tr>
+							<td><%=data.username%></td>
+							<td><%=data.fname%></td>
+							<td><%=data.dob%></td>
+							<td><button type="submit" class="cancel-btn">delete</button></td>
+						</tr>
+					</tbody>
+					<% i++; }) %> <% } %>
+				</table>
+			</div>
+		</form>
+		<form action="/order/cancel" method="POST">
+			<div id="order2">
+				<table class="table table-hover">
+				<thead class="table-light">
+					<tr>
+						<th>Employer Name</th>
+						<th>Employee Name</th>
+						<th>Date OF Booking</th>
+						<th>Time Slot Choosed</th>
+						<th>Status</th>
+						<th>Cancel</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<% if(order.length!=0){ var i=1; order.forEach(function(data){%>
+						<tbody>
+							<tr>
+								<td><%=data.employee%></td>
+								<td><%=data.employer%></td>
+								<td><%=data.date%></td>
+								<td><%=data.timeslot%></td>
+								<td><%=data.status%></td>
+								<td><button type="submit" class="cancel-btn">delete</button></td>
+							</tr>
+						</tbody>
+						<% i++; }) %> <% } %>
+				
+			</table>
+			</div>
+		</form>
+	
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+	<script src="/JS/admin.js"></script>
+</body>
+</html>

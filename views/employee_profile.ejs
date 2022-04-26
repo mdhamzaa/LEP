@@ -86,63 +86,115 @@
                 <input type="submit" value="Update" class="btn btn-info">
               </form>
                
-          
+          </div>
+          </div>
              
             </div>
             <div id="history">
-              <div id="resultCards">
-                <% if(userData.length!=0){ var i=1; userData.forEach(function(data){%>
-                <div class="resultCard">
-                    <div class="userIntro">
-                        <img class='profileImg' src="/Images/dummyImg.png" alt="">
-                        <div class="userNp">
-                            <span class="userName"><%= data.username %></span>
-                            <span class="profession"><%= data.Skills%></span>
-                        </div>
+              <h3 id="historyHead">Your Booking History:</h3>
+              <div id="historyBox">
+                <% if(udata.length!=0){ udata.forEach(function(data){%>
+                  <% if (data.status=='pending' ) { %>
+                    <div class="historyCards">
+                      <span class="employer quesans"><span class="ques">Employer Name:</span><span class="ans">
+                          <%=data.employer%>
+                        </span></span>
+                      <span class="employee quesans"><span class="ques">Employee Name:</span><span class="ans">
+                          <%=data.employee%>
+                        </span></span>
+                      <span class="date quesans"><span class="ques">Date Of Booking:</span><span class="ans">
+                          <%=data.date%>
+                        </span></span>
+                      <span class="timeslot quesans"><span class="ques">Time-Slot Choosed:</span><span class="ans">
+                          <%=data.timeslot%>
+                        </span></span>
+                      <span class="timeslot quesans"><span class="ques">Status:</span><span class="ans">
+                          <%=data.status%>
+                        </span></span>
+                      <form action="/order/cancel" method="post">
+                        <input type="text" name="username" value="<%=data.employee%>" style="display: none">
+                        <input type="text" name="timeslot" value="<%=data.timeslot%>" style="display: none">
+                        <input type="submit" value="cancel" class="btn btn-danger btn-lg">
+                      </form>
+        
+                      <form action="/order/complete" method="post">
+                        <input type="text" name="username" value="<%=data.employee%>" style="display: none">
+                        <input type="text" name="timeslot" value="<%=data.timeslot%>" style="display: none">
+                        <input type="submit" value="complete" class="btn btn-lg btn-info">
+                      </form>
                     </div>
-                    <div class="employeeDetails">
-                        <span class="experience"><span class="ques">Experience : </span><span class="ans"><%= data.Exp%></span></span>
-                        
-                        <span class="pincodes"><span class="ques">Available in areas(Pincodes) : </span><span
-                                class="ans"><%= data.pincode%></span></span>
-                    </div>
-                    <div class="book">
-                        <button type="submit" class="bookBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Hire</button>
-                    </div>
-                </div>
-                
-                <% i++; }) %> <% } else{ %>
-                      <tr>
-                        <td >No Data Found</td>
-                      </tr>
-                      <% } %>
-            </div>
-            
+                    <% }else{%>
+                      <div class="historyCards">
+                        <span class="employer quesans"><span class="ques">Employer Name:</span><span class="ans">
+                            <%=data.employer%>
+                          </span></span>
+                        <span class="employee quesans"><span class="ques">Employee Name:</span><span class="ans">
+                            <%=data.employee%>
+                          </span></span>
+                        <span class="date quesans"><span class="ques">Date Of Booking:</span><span class="ans">
+                            <%=data.date%>
+                          </span></span>
+                        <span class="timeslot quesans"><span class="ques">Time-Slot Choosed:</span><span class="ans">
+                            <%=data.timeslot%>
+                          </span></span>
+                        <span class="timeslot quesans"><span class="ques">Status:</span><span class="ans">
+                            <%=data.status%>
+                          </span></span>
+        
+                      </div>
+        
+                      <%}%>
+                        <% }) %>
+                          <% } %>
+        
+        
+              </div>
             </div>
          
+          <div id="booki">
 
-        <div id="booki">
-          
-        <div id="resultCards">
-            <div class="resultCard">
-                <div class="userIntro">
-                    <img class='profileImg' src="/Images/dummyImg.png" alt="">
-                      <div class="userNp">
-                          <span class="userName">akhil</span>
-    
-                      </div>
+            <h3 id="bookiHead">Your Bookings:</h3>
+            <div id="bookiBox">
+              <% if(udata.length!=0){ udata.forEach(function(data){%>
+                <% if (data.status=='pending' ) { %>
+                  <div class="bookiCards">
+                    <span class="employer quesans"><span class="ques">Employer Name:</span><span class="ans">
+                        <%=data.employer%>
+                      </span></span>
+                    <span class="employee quesans"><span class="ques">Employee Name:</span><span class="ans">
+                        <%=data.employee%>
+                      </span></span>
+                    <span class="date quesans"><span class="ques">Date Of Booking:</span><span class="ans">
+                        <%=data.date%>
+                      </span></span>
+                    <span class="timeslot quesans"><span class="ques">Time-Slot Choosed:</span><span class="ans">
+                        <%=data.timeslot%>
+                      </span></span>
+                    <span class="timeslot quesans"><span class="ques">Status:</span><span class="ans">
+                        <%=data.status%>
+                      </span></span>
+                    <form action="/order/cancel" method="post">
+                      <input type="text" name="username" value="<%=data.employee%>" style="display: none">
+                      <input type="text" name="timeslot" value="<%=data.timeslot%>" style="display: none">
+                      <input type="submit" value="cancel" class="btn btn-danger btn-lg">
+                    </form>
+        
+                    <form action="/order/complete" method="post">
+                      <input type="text" name="username" value="<%=data.employee%>" style="display: none">
+                      <input type="text" name="timeslot" value="<%=data.timeslot%>" style="display: none">
+                      <input type="submit" value="complete" class="btn btn-lg btn-info">
+                    </form>
                   </div>
-                  <div class="employeeDetails">
-                      <span class="experience"><span class="ques">Expe : </span><span class="ans"></span></span>
-                      
-                      <span class="pincodes"><span class="ques">Availa: </span><span
-                              class="ans"></span></span>
-                </div>
-              </div>
-          </div>
+                  <% } %>
+                    <% }) %>
+                      <% } %>
+        
+        
+        
             </div>
-       </div>
-    </div>
+          </div>
+     
+  
     <script>
       document.getElementById("his").onclick = function() {
     document.getElementById("display").style.display = "none";

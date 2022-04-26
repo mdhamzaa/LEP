@@ -105,7 +105,10 @@ app.get('/dashboard', isAuth, async (req, res) => {
 
     if (req.session.userp.level == 'employee') {
         const book = await Booking.find({ employee: req.session.userp.username });
-        console.log(book)
+        // console.log(book);
+        const details = { d: req.session.userp, udata: book }
+        return res.render('employee_profile', { d: req.session.userp, udata: book });
+
         // return res.render('employee_profile', { d: req.session.userp, book });
     } else {
         const book = await Booking.find({ employer: req.session.userp.username });
@@ -245,10 +248,18 @@ app.post('/login', async (req, res) => {
         const thisPassword = req.body.password;
         const employer = await Employer.findOne({ username: thisUsername });
         const employee = await Employee.findOne({ username: thisUsername });
+        console.log(employee);
         const admin = await Admin.findOne({ username: thisUsername });
         if (admin != null) {
-            return res.render('admin');
+            const employee = await Employee.find({ level: 'employee' });
+            const employer = await Employer.find({ level: 'employer' });
+            const order = await Booking.find({});
+            console.log(order);
+
+            req.session.userp = admin;
+            return res.render('admin', { route: "/", name: thisUsername, userData: employee, uData: employer, order });
         }
+
         // console.log(employee);
         // console.log(employer);
         if (employee == null && employer == null) {
@@ -258,7 +269,7 @@ app.post('/login', async (req, res) => {
             if (employee.password === thisPassword) {
                 req.session.userp = employee;
                 req.session.isAuth = true;
-                return res.status(201).redirect('/dashboard');
+                return res.status(201).redirect('/');
 
 
             } else {
@@ -333,7 +344,9 @@ app.post('/update-user', async (req, res) => {
         res.render('update_employee', req.session.userp);
     }
     else {
-        const employer = await Employer.deleteOne({ username: req.session.userp.username });
+
+        const employer = await Employer.findOne({ username: req.session.userp.username });
+        res.render('update_employer', req.session.userp);
         console.log(employer)
     }
 
@@ -380,9 +393,10 @@ app.post('/update', async (req, res) => {
         const Newemployee = await Employee.findOne({ username: req.session.userp.username });
         req.session.userp = Newemployee;
         // console.log(employee);
-
+        return res.redirect('/dashboard');
     }
-    else {
+
+    if (req.session.userp.level == 'employer') {
         const {
             username,
             level,
@@ -415,14 +429,17 @@ app.post('/update', async (req, res) => {
         };
 
 
+        // console.log(Newemployer);
+        const Newemployer = await Employer.findOne({ username: req.session.userp.username });
         const employer = await Employer.updateOne({ username: req.session.userp.username }, newvalues);
 
-        const Newemployer = await Employer.findOne({ username: req.session.userp.username });
         req.session.userp = Newemployer;
-        console.log(employer)
+
+        // console.log(employer)
+        return res.redirect('/dashboard');
     }
 
-    res.redirect('/dashboard');
+
 })
 
 app.post('/search', async (req, res) => {
@@ -466,7 +483,7 @@ app.post('/payments/success', (req, res) => {
 //booking
 
 app.post('/booking', async (req, res) => {
-    console.log(req.body.username);
+    // console.log(req.body.username);
 
     const employr = await Employer.findOne({ username: req.session.userp.username });
     const employe = await Employee.findOne({ username: req.body.username });
@@ -508,7 +525,7 @@ app.post('/order/cancel', async (req, res) => {
     }
 
     const book = await Booking.updateOne({ employee: req.body.username, timeslot: req.body.timeslot }, newvalues);
-    console.log(book)
+    // console.log(book)
 
     res.redirect('/dashboard');
 })
@@ -524,7 +541,7 @@ app.post('/order/complete', async (req, res) => {
     }
 
     const book = await Booking.updateOne({ employee: req.body.username, timeslot: req.body.timeslot }, newvalues);
-    console.log(book)
+    // console.log(book)
 
     res.redirect('/dashboard');
 })

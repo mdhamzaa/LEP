@@ -143,7 +143,6 @@
 
     <div class="main">
       <div class="register">
-        <h2 id="er_head">Employee Registration</h2>
         <hr />
         <br />
         <form id="register" method="post" action="/update">
@@ -158,7 +157,7 @@
           />
           <br /><br />
           <label for="level">Level</label>
-          <input type="text" name="level" id="level" value="employee" />
+          <input type="text" name="level" id="level" value="employer" />
           <br /><br />
           <label for="email">Email</label>
           <input
@@ -219,7 +218,7 @@
             class="esignup"
           />
           <br /><br />
-          <label for="pcode1">Pincode 1</label>
+          <label for="pcode1">Pincode</label>
           <input
             type="number"
             name="Pincode1"
@@ -228,32 +227,10 @@
             class="esignup"
             maxlength="6"
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            value="<%= pincode[0] %>"
+            value="<%= pincode %>"
           />
           <br /><br />
-          <label for="pcode2">Pincode 2</label>
-          <input
-            type="number"
-            name="Pincode1"
-            id="pcode2"
-            required="required"
-            class="esignup"
-            maxlength="6"
-            value="<%= pincode[1] %>"
-            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-          />
-          <br /><br />
-          <label for="pcode3">Pincode 3</label>
-          <input
-            type="number"
-            name="Pincode1"
-            id="pcode3"
-            required="required"
-            class="esignup"
-            maxlength="6"
-            value="<%= pincode[2] %>"
-            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-          />
+
           <br /><br />
           <label for="pnum">Mobile number</label>
           <input
@@ -267,26 +244,7 @@
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
           />
           <br /><br />
-          <label for="skills">Skills</label>
-          <input
-            type="text"
-            name="Skills"
-            id="skills"
-            value="<%=  Skills %>"
-            class="esignup"
-            required="required"
-          />
-          <br /><br />
-          <label for="exp">Experience</label>
-          <input
-            type="text"
-            name="Experience"
-            id="exp"
-            value="<%=  Exp %>"
-            class="esignup"
-            required="required"
-          />
-          <br /><br />
+
           <label for="password">Password</label
           ><i id="eye" class="fa-solid fa-eye-slash" onclick="toggle()"></i>
           <input
